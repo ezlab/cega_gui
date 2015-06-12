@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "4.x.x",
+    "express-http-proxy": "0.3.x"
+  }
+}
