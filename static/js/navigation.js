@@ -6,10 +6,24 @@
 		var results = {};
 
 		location.search.replace(/(\w+)=([^&]*)/g, function(match, name, value){
-			results[name] = decodeURIComponent(value);
+			results[name] = decodeURIComponent(value.replace(/\+/g, '%20'));
 		});
 
 		return results;
+	}
+
+
+	function encode(params){
+
+		var i, s = '';
+
+		for (i in params){
+			if (params[i]){
+				s += (s ? '&' : '') + i + '=' + encodeURIComponent(params[i]).replace(/%20/g, '+');
+			}
+		}
+
+		return s ? '?' + s : '';
 	}
 
 
@@ -38,11 +52,7 @@
 
 	app.navigate = function(path, values){
 
-		var url = path;
-
-		if (values){
-			url += '?' + $.param(values, true);
-		}
+		var url = path + encode(values);
 
 		// IE8, IE9 do not support history API
 		if (window.history && history.pushState){
