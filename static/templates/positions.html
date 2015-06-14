@@ -1,0 +1,19 @@
+
+<table>
+	<tr>
+		<th>chrom</th>
+		<th>start</th>
+		<th>end</th>
+		<th>status</th>
+		<th>score</th>
+	</tr>
+{{#each .}}
+	<tr>
+		<td>{{chrom}}</td>
+		<td>{{start}}</td>
+		<td>{{stop}}</td>
+		<td>{{feature}}</td>
+		<td>{{score}}</td>
+	</tr>
+{{/each}}
+</table>
