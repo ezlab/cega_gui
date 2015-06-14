@@ -41,6 +41,48 @@
 	background: #f8f8f2;
 }
 
+.s-sidebar-wrap {
+	width: 380px;
+	padding: 5px 15px 0;
+	background: inherit;
+}
+
+.s-sidebar-wrap input,
+.s-sidebar-wrap select {
+	font: inherit;
+	width: 250px;
+	height: 25px;
+	padding: 0 0 0 5px;
+	border: 1px solid #999;
+	border-radius: 2px;
+	line-height: 23px;
+}
+
+.s-sidebar-label {
+	margin-top: 15px;
+	color: #654;
+	line-height: 1.4em;
+}
+
+.s-sidebar-section {
+	position: relative;
+	padding: 12px 15px;
+	margin-top: 20px;
+	border: 1px solid #ccb;
+	border-radius: 4px;
+	background: inherit;
+}
+
+.s-sidebar button {
+	padding: 10px 30px;
+	margin: 20px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	background: #dadace;
+	background: linear-gradient(#eed, #ccb);
+	font: inherit;
+}
+
 /*  header  --------------- */
 
 .s-header {

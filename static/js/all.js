@@ -9,5 +9,7 @@
 	include('errors.js');
 	include('navigation.js');
 	include('pages.js');
+	include('params.js');
+	include('sidebar.js');
 
 })();
