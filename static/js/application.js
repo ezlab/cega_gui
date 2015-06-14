@@ -36,7 +36,7 @@ var app = {};
 	app.fireEvent = function(name, value){
 
 		var handlers = events[name],
-			args = [value, values],
+			args = [value, app.state()],
 			results = [],
 			i;
 
@@ -50,8 +50,12 @@ var app = {};
 	};
 
 
+	function State(){}
+
+	State.prototype = values;
+
 	app.state = function(){
-		return values;
+		return new State;
 	};
 
 })();
