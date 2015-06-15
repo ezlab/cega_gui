@@ -13,7 +13,7 @@
 			request: state.request
 		};
 
-		var positions = $.getJSON('position', values);
+		var positions = $.getJSON('position', values).then(app.verifyRespones);
 
 		app.render('#content', 'positions', positions);
 	}
