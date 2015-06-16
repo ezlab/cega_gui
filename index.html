@@ -33,14 +33,33 @@
 
 			<div class="s-sidebar-wrap">
 				<div class="s-sidebar-section">
+					<div class="s-sidebar-label">Search:</div>
 					<div class="s-sidebar-label">Clade</div>
 					<select id="input-clade"></select>
 
 					<div class="s-sidebar-label">Species</div>
 					<select id="input-species"></select>
 
-					<div class="s-sidebar-label">Request</div>
+					<div class="s-sidebar-label">Position, gene name or element ID</div>
 					<input id="input-request" type="text" />
+
+					<button id="submit-button">Search</button>
+
+				</div>
+
+				<div class="s-sidebar-section">
+					<div class="s-sidebar-label">Filter:</div>
+					<div class="s-sidebar-label">Position</div>
+					<input id="input-position" type="text" />
+
+					<div class="s-sidebar-label">Length</div>
+					<input id="input-length" type="text" />
+
+					<div class="s-sidebar-label">Score</div>
+					<input id="input-score" type="text" />
+
+					<div class="s-sidebar-label">Status</div>
+					<select id="input-status"></select>
 
 					<button id="submit-button">Submit</button>
 
@@ -50,7 +69,8 @@
 		</div>
 
 		<div id="topbox" class="s-topbox">
-
+			<div class="s-cega-logo">CEGA</div>
+			<div class="s-cega-description">Conserved Elements from Genomic Alignments</div>
 		</div>
 
 		<div id="content" class="s-content">
