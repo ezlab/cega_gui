@@ -18,6 +18,18 @@
 	border: none;
 }
 
+.s-cega-logo {
+    float: left;
+    margin: 10px 20px;
+    font: bold 48px Arial;
+    color: #9C0063;
+    text-shadow: 2px 2px 2px #bba;
+}
+
+.s-cega-description {
+    margin-top: 40px;
+}
+
 .s-content {
 	position: absolute;
 	overflow: auto;
