@@ -1,6 +1,11 @@
 
 (function(){
 
+	Handlebars.registerHelper('length', function(start, stop){
+		return Number(stop) - Number(start);
+	});
+
+
 	function requestPositions(params, state){
 
 		if (!params.clade || !params.species){
