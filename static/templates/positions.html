@@ -3,18 +3,20 @@
 	Search results: {{request}} : {{counts}} elements
 </div>
 
-<div class="s-position-headers">
-	      <div class="s-pos-header s-col-chrom">Chrom.
-	</div><div class="s-pos-header s-col-start">Start
-	</div><div class="s-pos-header s-col-stop">Stop
-	</div><div class="s-pos-header s-col-length">Length
-	</div><div class="s-pos-header s-col-score">Score
-	</div><div class="s-pos-header s-col-feature">Status
-	</div><div class="s-pos-header s-col-select"><input type="checkbox">
+{{#if data}}
+	<div class="s-position-headers">
+			  <div class="s-pos-header s-col-chrom">Chrom.
+		</div><div class="s-pos-header s-col-start">Start
+		</div><div class="s-pos-header s-col-stop">Stop
+		</div><div class="s-pos-header s-col-length">Length
+		</div><div class="s-pos-header s-col-score">Score
+		</div><div class="s-pos-header s-col-feature">Status
+		</div><div class="s-pos-header s-col-select"><input type="checkbox">
+		</div>
 	</div>
-</div>
+{{/if}}
 
-{{#each data ~}}
+{{#each data}}
 	<div class="s-position-row">
 		      <div class="s-pos-cell s-col-chrom">{{chrom}}
 		</div><div class="s-pos-cell s-col-start">{{start}}
@@ -25,4 +27,4 @@
 		</div><div class="s-pos-cell s-col-select"><input type="checkbox">
 		</div>
 	</div>
-{{~/each}}
+{{/each}}
