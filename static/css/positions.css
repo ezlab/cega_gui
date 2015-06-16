@@ -29,7 +29,7 @@
 .s-pos-cell {
 	display: inline-block;
 	overflow: hidden;
-	width: 100px;
+	width: 120px;
 	height: 2em;
 	padding: 0 8px;
 	border-right: 1px solid #ddc;
@@ -46,7 +46,6 @@
 	color: #663;
 }
 
-.s-col-start {width: 120px}
-.s-col-stop {width: 120px}
-
-
+.s-col-length {width: 100px}
+.s-col-score {width: 100px}
+.s-col-select {width: 100px; text-align: center}
