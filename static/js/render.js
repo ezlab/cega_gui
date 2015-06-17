@@ -3,23 +3,24 @@
 
 	var templates = {};
 
-	function render(selector, template, data){
-		$(selector).html(template(data));
+	function render(template, data){
+		return template(data);
 	}
 
-	app.render = function(selector, name, deferred){
+	app.render = function(name, data){
 
-		var template = templates[name] || $.get('static/templates/' + name + '.html').then(function(source){
-			var tpl = Handlebars.compile(source);
-			templates[name] = tpl;
-			return tpl;
-		});
+		function compile(source){
+			return (templates[name] = Handlebars.compile(source));
+		}
 
-		var data = deferred.then(function(data){
-			return data;
-		});
+		var template = templates[name] || $.get('static/templates/' + name).then(compile);
 
-		$.when(selector, template, data).then(render);
+		return $.when(template, data).then(render);
+	};
+
+
+	app.helper = function(name, fn){
+		Handlebars.registerHelper(name, fn);
 	};
 
 })();
