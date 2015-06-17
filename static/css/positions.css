@@ -10,12 +10,17 @@
 	background: #f8f8f2;
 }
 
-.s-position-row:nth-child(even){
+.s-position-row:nth-child(even)>.s-position-cells{
 	background: #fcfcf9;
 }
 
 .s-position-row:last-child{
 	border-bottom: 1px solid #ddc;
+}
+
+.s-position-row:hover>.s-position-cells {
+	background: #def;
+	cursor: pointer;
 }
 
 .s-position-headers,

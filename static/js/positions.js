@@ -6,6 +6,12 @@
 	});
 
 
+	function savePositions(response){
+		app.set('positions', response.data);
+		return response;
+	}
+
+
 	function replaceContent(content){
 		$('#content').html(content);
 	}
@@ -23,7 +29,7 @@
 			request: state.request
 		};
 
-		var positions = app.load('/position', values);
+		var positions = app.load('/position', values).then(savePositions);
 
 		app.render('positions.html', positions).then(replaceContent);
 	}

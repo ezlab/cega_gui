@@ -17,14 +17,18 @@
 {{/if}}
 
 {{#each data}}
-	<div class="s-position-row">
-		      <div class="s-pos-cell s-col-chrom">{{chrom}}
-		</div><div class="s-pos-cell s-col-start">{{start}}
-		</div><div class="s-pos-cell s-col-stop">{{stop}}
-		</div><div class="s-pos-cell s-col-length">{{subtract start stop}}
-		</div><div class="s-pos-cell s-col-score">{{score}}
-		</div><div class="s-pos-cell s-col-feature">{{feature}}
-		</div><div class="s-pos-cell s-col-select"><input type="checkbox">
+	<div class="s-position-row" data-id="{{@index}}">
+		<div class="s-position-cells">
+				  <div class="s-pos-cell s-col-chrom">{{chrom}}
+			</div><div class="s-pos-cell s-col-start">{{start}}
+			</div><div class="s-pos-cell s-col-stop">{{stop}}
+			</div><div class="s-pos-cell s-col-length">{{subtract start stop}}
+			</div><div class="s-pos-cell s-col-score">{{score}}
+			</div><div class="s-pos-cell s-col-feature">{{feature}}
+			</div><div class="s-pos-cell s-col-select"><input type="checkbox">
+			</div>
+		</div>
+		<div class="s-position-details" id="position-{{@index}}">
 		</div>
 	</div>
 {{/each}}
