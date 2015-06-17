@@ -12,6 +12,7 @@
 	include('pages.js');
 	include('params.js');
 	include('sidebar.js');
-	include('results.js');
+	include('positions.js');
+	include('elements.js');
 
 })();

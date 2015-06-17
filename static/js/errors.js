@@ -71,7 +71,7 @@
 		showErrors();
 	});
 
-	app.verifyResponse = function(response, status, xhr){
+	function verifyResponse(response, status, xhr){
 
 		if (response.status != 'ok'){
 
@@ -84,6 +84,10 @@
 		}
 
 		return response;
+	};
+
+	app.load = function(url, params){
+		return $.getJSON(url, params).then(verifyResponse);
 	};
 
 })();
