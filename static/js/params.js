@@ -1,26 +1,29 @@
 
 (function(){
 
+	var names = ['clade', 'species', 'request', 'length', 'score', 'status'];
+
+
 	function updateState(params){
 
 		if (!params.clade || !params.species){
 			return;
 		}
 
-		app.set('clade', params.clade);
-		app.set('species', params.species);
-		app.set('request', params.request);
+		$.each(names, function(index, name){
+			app.set(name, params[name]);
+		});
 	}
 
 
 	function sendRequest(){
 
-		var state = app.state(),
-			params = {
-				clade: state.clade,
-				species: state.species,
-				request: state.request
-			};
+		var params = {},
+			state = app.state();
+
+		$.each(names, function(index, name){
+			params[name] = state[name];
+		});
 
 		app.navigate('', params);
 	}
