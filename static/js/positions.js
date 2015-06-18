@@ -26,7 +26,10 @@
 		var values = {
 			clade: state.clade,
 			species: state.species,
-			request: state.request
+			request: state.request,
+			length: state.length,
+			score: state.score,
+			status: state.status
 		};
 
 		var positions = app.load('/position', values).then(savePositions);

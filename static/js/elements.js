@@ -1,91 +1,89 @@
 
 (function(){
 
-	var template;
+	var template,
+		headers;
+
+
+	function compileTemplate(source){
+		template = Handlebars.compile(source);
+		headers = template({headers: true});
+	};
+
 
 	app.on('init', function(){
-		return $.get('static/templates/msa.html').then(function(source){
-			template = Handlebars.compile(source);
-		});
+		return $.get('static/templates/msa.html').then(compileTemplate);
 	});
 
-	function toggleRow(index){
 
-		var box = $('#position-' + index),
+	function renderLabels(key, value){
+		value.id = 'r' + key;
+		value.labels = template(value);
+	}
+
+
+	function toggleRow(event){
+
+		var $box = $(event.currentTarget).next();
 
 			state = app.state(),
-			positions = state.positions || [],
-			position = positions[index] || {},
 
 			values = {
 				clade: state.clade,
 				species: state.species,
-				block: position.block,
-				element: position.element
+				block: $box.attr('data-block'),
+				element: $box.attr('data-element')
 			};
 
-		if (box.data('expanded')){
-			box.data('expanded', false);
-			box.html('');
+		if ($box.find('.msa').length){
+			$box.empty();
 			return;
 		}
 
-		box.data('expanded', true);
-		box.html('loading..' + position.block + ' ' + position.element);
+		function expand(content){
+			$box.html(content);
+		}
 
-		var elements = app.load('/element', values);
+		function initMSA(results){
 
-		var ready = app.render('elements.html', {index:index}).then(function(html){
-			box.html(html);
-		});
+			var cfg = {
+				el: $box.find('.msa>div'),
+				seqs : results.data,
+				vis: {labelId: false},
+				zoomer: {labelNameLength: 420, alignmentHeight: Math.min(150, 15*results.data.length)}
+			};
 
-		$.when(elements, ready).then(function(res){
+			$.each(cfg.seqs, renderLabels);
 
-			var i, seqs = [], a = res.data;
-
-			for(i=0; i<a.length; i++){
-				seqs[i] = {
-					id: 'r' + i,
-					labels: template(a[i]),
-					name: a[i].spc,
-					seq: a[i].seq
-				};
-			}
-
-			var opt = {
-					el: document.getElementById('msa' + index),
-					seqs : seqs,
-					vis: {labelId: false},
-					zoomer: {labelNameLength: 420}
-				},
-
-				m = new msa.msa(opt);
+			var m = new msa.msa(cfg);
 
 			m.render();
+		}
 
-		});
+		var elements = app.load('/element', values),
+			ready = app.render('elements.html').then(expand);
+
+		$.when(elements, ready).then(initMSA);
 	}
 
 
-	function init(){
-		$('#content').on('click', '.s-position-cells', function(event){
-			toggleRow(event.currentTarget.getAttribute('data-id'));
-		});
-	}
+	app.on('init', 	function init(){
+		$('#content').on('click', '.s-position-cells', toggleRow);
+	});
 
 
-	app.on('init', init);
+	// MSA LabelHeader
+	require(149).prototype.labelDOM	= function(){
+		var el = document.createElement('div');
+		el.style.width = this.g.zoomer.getLabelWidth() + 'px';
+		el.innerHTML = headers;
+		return el;
+	};
 
-})();
-
-
-(function(){
-
-	// LabelView
+	// MSA LabelView
 	require(155).prototype.render = function() {
-
-		this.el.setAttribute("class", "biojs_msa_labels");
-		this.el.style.width = (this.g.zoomer.getLabelWidth()) + "px";
+		this.el.setAttribute('class', 'biojs_msa_labels');
+		this.el.style.width = this.g.zoomer.getLabelWidth() + 'px';
 		this.el.innerHTML = this.model.attributes.labels;
 		return this;
 	};

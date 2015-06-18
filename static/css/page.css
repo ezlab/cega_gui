@@ -87,8 +87,8 @@
 
 .s-sidebar-section {
 	position: relative;
-	padding: 12px 15px;
-	margin-top: 20px;
+	padding: 12px 15px 25px;
+	margin-top: 25px;
 	border: 1px solid #ccb;
 	border-radius: 4px;
 	background: inherit;
@@ -262,3 +262,10 @@
 	line-height: 80px;
 }
 
+/*  misc -------------- */
+
+.s-loading {
+	padding-left: 30px;
+	line-height: 2em;
+	background: url(../images/loading.gif) 5px 50% no-repeat;
+}

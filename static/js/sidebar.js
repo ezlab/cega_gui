@@ -1,57 +1,75 @@
 
 (function(){
 
-	var $clade,
-		$species,
-		$request,
-
+	var fields = {},
+		statuses = ['all', 'coding', 'intronic', 'intergenic', 'noncoding'],
 		lists = {};
 
 
 	function updateSpecies(){
 
-		var clade = app.get('clade');
+		var clade = app.get('clade'),
+			select = fields.species;
 
-		$species.empty();
+		select.empty();
 
 		$.each(lists[clade] || [], function(key, value) {
-			 $species.append($("<option></option>").attr("value", value).text(value));
+			 select.append($("<option></option>").attr("value", value).text(value));
 		});
 
-		$species.val(app.get('species'));
+		select.val(app.get('species'));
+	}
+
+
+	function bind(){
+
+		var field = $(this),
+			name = field.attr('data-field');
+
+		function getState(){
+			field.val(app.get(name));
+		}
+
+		app.on('ready', getState);
+		app.on(name, getState);
+
+		function setState(){
+			app.set(name, field.val());
+		}
+
+		if (this.tagName == 'INPUT'){
+			field.blur(setState);
+		}
+
+		if (this.tagName == 'SELECT'){
+			field.change(setState);
+		}
+
+		fields[name] = field;
 	}
 
 
 	function init(clades, species){
 
-		$clade = $('#input-clade');
-		$species = $('#input-species');
-		$request = $('#input-request');
+		$('input[data-field]').each(bind);
+		$('select[data-field]').each(bind);
 
 		$.each(clades[0], function(key, value) {
-			 $clade.append($("<option></option>").attr("value", key).text(value));
+			 fields.clade.append($("<option></option>").attr("value", key).text(value));
 		});
 
 		$.each(species[0], function(key, value) {
 			 lists[key] = value.split(',');
 		});
 
+		$.each(statuses, function(key, value) {
+			 fields.status.append($("<option></option>").attr("value", value).text(value));
+		});
+
 		updateSpecies();
 
-		$clade.val(app.get('clade'));
-		$species.val(app.get('species'));
-		$request.val(app.get('request'));
-
-		$clade.change(function(){
-			app.set('clade', $clade.val());
-		});
-
-		$species.change(function(){
-			app.set('species', $species.val());
-		});
-
-		$request.blur(function(){
-			app.set('request', $request.val());
+		app.on('clade', function(clade){
+			updateSpecies();
 		});
 	}
 
@@ -64,21 +82,4 @@
 		return $.when(load1, load2).then(init);
 	});
 
-
-	app.on('clade', function(clade){
-		$clade.val(clade);
-		updateSpecies();
-	});
-
-
-	app.on('species', function(species){
-		$species.val(species);
-	});
-
-
-	app.on('request', function(request){
-		$request.val(request);
-	});
-
 })();
-
