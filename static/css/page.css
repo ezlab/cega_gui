@@ -262,3 +262,10 @@
 	line-height: 80px;
 }
 
+/*  misc -------------- */
+
+.s-loading {
+	padding-left: 30px;
+	line-height: 2em;
+	background: url(../images/loading.gif) 5px 50% no-repeat;
+}

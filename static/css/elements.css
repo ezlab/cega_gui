@@ -1,0 +1,13 @@
+
+.biojs_msa_labels {
+	font-size: 11px;
+}
+
+.biojs_msa_headers>div>span,
+.biojs_msa_labels>span {
+	display: inline-block;
+	overflow: hidden;
+	padding: 0 4px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

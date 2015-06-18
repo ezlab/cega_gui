@@ -1,7 +1,17 @@
-       <span style="width: 120px">{{spc}}
-</span><span style="width: 60px">{{chrom}}
-</span><span style="width: 80px">{{start}}
-</span><span style="width: 80px">{{stop}}
-</span><span style="width: 30px">{{subtract start stop}}
-</span><span style="width: 40px">{{feature}}
-</span>
+{{#if headers}}
+		   <span style="width: 120px">Species
+	</span><span style="width: 60px">Chrom.
+	</span><span style="width: 80px">Start
+	</span><span style="width: 80px">Stop
+	</span><span style="width: 30px">Length
+	</span><span style="width: 40px">Feature
+	</span>
+{{else}}
+		   <span style="width: 120px">{{spc}}
+	</span><span style="width: 60px">{{chrom}}
+	</span><span style="width: 80px">{{start}}
+	</span><span style="width: 80px">{{stop}}
+	</span><span style="width: 30px">{{subtract start stop}}
+	</span><span style="width: 40px">{{feature}}
+	</span>
+{{/if}}

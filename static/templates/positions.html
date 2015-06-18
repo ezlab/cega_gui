@@ -18,7 +18,7 @@
 
 {{#each data}}
 	<div class="s-position-row">
-		<div class="s-position-cells" data-id="{{@index}}">
+		<div class="s-position-cells">
 				  <div class="s-pos-cell s-col-chrom">{{chrom}}
 			</div><div class="s-pos-cell s-col-start">{{start}}
 			</div><div class="s-pos-cell s-col-stop">{{stop}}
@@ -28,7 +28,7 @@
 			</div><div class="s-pos-cell s-col-select"><input type="checkbox">
 			</div>
 		</div>
-		<div class="s-position-details" id="position-{{@index}}">
+		<div class="s-position-details" data-block="{{block}}" data-element="{{element}}">
 		</div>
 	</div>
 {{/each}}
