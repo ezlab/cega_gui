@@ -1,34 +1,32 @@
 
 <div class="s-position-status">
-	Search results: {{request}} : {{counts}} elements
+	{{#if count}}
+
+		<div class="s-position-hint">
+			Click row to expand
+		</div>
+
+		Search results: {{state.request}} : {{count}} elements
+	{{else}}
+		No results found for {{state.request}}. {{message}}
+	{{/if}}
 </div>
 
 {{#if data}}
 	<div class="s-position-headers">
 			  <div class="s-pos-header s-col-chrom">Chrom.
-		</div><div class="s-pos-header s-col-start">Start
-		</div><div class="s-pos-header s-col-stop">Stop
-		</div><div class="s-pos-header s-col-length">Length
-		</div><div class="s-pos-header s-col-score">Score
+		</div><div class="s-pos-header s-col-start">Start {{sorter 'start'}}
+		</div><div class="s-pos-header s-col-stop">Stop {{sorter 'stop'}}
+		</div><div class="s-pos-header s-col-length">Length {{sorter 'length'}}
+		</div><div class="s-pos-header s-col-score">Score {{sorter 'score'}}
 		</div><div class="s-pos-header s-col-feature">Status
 		</div><div class="s-pos-header s-col-select"><input type="checkbox">
 		</div>
 	</div>
 {{/if}}
 
-{{#each data}}
-	<div class="s-position-row">
-		<div class="s-position-cells">
-				  <div class="s-pos-cell s-col-chrom">{{chrom}}
-			</div><div class="s-pos-cell s-col-start">{{start}}
-			</div><div class="s-pos-cell s-col-stop">{{stop}}
-			</div><div class="s-pos-cell s-col-length">{{subtract start stop}}
-			</div><div class="s-pos-cell s-col-score">{{score}}
-			</div><div class="s-pos-cell s-col-feature">{{feature}}
-			</div><div class="s-pos-cell s-col-select"><input type="checkbox">
-			</div>
-		</div>
-		<div class="s-position-details" data-block="{{block}}" data-element="{{element}}">
-		</div>
-	</div>
-{{/each}}
+<div id="positions"></div>
+
+<br>
+<br>
+<br>

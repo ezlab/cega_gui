@@ -21,6 +21,14 @@
 	}
 
 
+	function submit(e){
+		if ((e.keyCode || e.which) == 13){
+			$(this).blur();
+			$('#submit-button').click();
+		}
+	}
+
+
 	function bind(){
 
 		var field = $(this),
@@ -39,6 +47,7 @@
 
 		if (this.tagName == 'INPUT'){
 			field.blur(setState);
+			field.keypress(submit);
 		}
 
 		if (this.tagName == 'SELECT'){
