@@ -1,6 +1,6 @@
 
 <div class="s-position-status">
-	Search results: {{request}} : {{counts}} elements
+	Search results: {{request}} : {{count}} elements
 </div>
 
 {{#if data}}
@@ -16,19 +16,8 @@
 	</div>
 {{/if}}
 
-{{#each data}}
-	<div class="s-position-row">
-		<div class="s-position-cells">
-				  <div class="s-pos-cell s-col-chrom">{{chrom}}
-			</div><div class="s-pos-cell s-col-start">{{start}}
-			</div><div class="s-pos-cell s-col-stop">{{stop}}
-			</div><div class="s-pos-cell s-col-length">{{subtract start stop}}
-			</div><div class="s-pos-cell s-col-score">{{score}}
-			</div><div class="s-pos-cell s-col-feature">{{feature}}
-			</div><div class="s-pos-cell s-col-select"><input type="checkbox">
-			</div>
-		</div>
-		<div class="s-position-details" data-block="{{block}}" data-element="{{element}}">
-		</div>
-	</div>
-{{/each}}
+<div id="positions"></div>
+
+<br>
+<br>
+<br>
