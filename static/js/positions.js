@@ -49,6 +49,7 @@
 
 		if (!total){
 			total = response.count;
+			response.state = app.state();
 			app.render('positions.html', response).then(updatePositions);
 		}
 		else {

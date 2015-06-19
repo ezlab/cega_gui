@@ -1,6 +1,10 @@
 
 <div class="s-position-status">
-	Search results: {{request}} : {{count}} elements
+	{{#if count}}
+		Search results: {{state.request}} : {{count}} elements
+	{{else}}
+		No results found for {{state.request}}. {{message}}
+	{{/if}}
 </div>
 
 {{#if data}}
