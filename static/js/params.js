@@ -1,7 +1,7 @@
 
 (function(){
 
-	var names = ['clade', 'species', 'request', 'length', 'score', 'status'];
+	var names = ['clade', 'species', 'request', 'length', 'score', 'status', 'sort'];
 
 
 	function updateState(params){

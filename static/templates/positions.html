@@ -1,6 +1,11 @@
 
 <div class="s-position-status">
 	{{#if count}}
+
+		<div class="s-position-hint">
+			Click row to expand
+		</div>
+
 		Search results: {{state.request}} : {{count}} elements
 	{{else}}
 		No results found for {{state.request}}. {{message}}
@@ -10,10 +15,10 @@
 {{#if data}}
 	<div class="s-position-headers">
 			  <div class="s-pos-header s-col-chrom">Chrom.
-		</div><div class="s-pos-header s-col-start">Start
-		</div><div class="s-pos-header s-col-stop">Stop
-		</div><div class="s-pos-header s-col-length">Length
-		</div><div class="s-pos-header s-col-score">Score
+		</div><div class="s-pos-header s-col-start">Start {{sorter 'start'}}
+		</div><div class="s-pos-header s-col-stop">Stop {{sorter 'stop'}}
+		</div><div class="s-pos-header s-col-length">Length {{sorter 'length'}}
+		</div><div class="s-pos-header s-col-score">Score {{sorter 'score'}}
 		</div><div class="s-pos-header s-col-feature">Status
 		</div><div class="s-pos-header s-col-select"><input type="checkbox">
 		</div>

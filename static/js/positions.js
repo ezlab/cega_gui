@@ -13,6 +13,19 @@
 	});
 
 
+	app.helper('sorter', function(column){
+
+		var s = '<div class="s-sorter" data-column="%1"><div class="s-asc %2"></div><div class="s-desc %3"></div></div>',
+			current = String(app.get('sort')).toLowerCase();
+
+		s = s.replace('%1', column);
+		s = s.replace('%2', column + '|asc' == current ? 's-current' : '');
+		s = s.replace('%3', column + '|desc' == current ? 's-current' : '');
+
+		return new Handlebars.SafeString(s);
+	});
+
+
 	function appendRows(content){
 		$('#positions').append(content);
 	}
@@ -104,6 +117,21 @@
 			if ($('#positions').length){
 				updateDisplay();
 			}
+		});
+
+		$('#content').on('click', '.s-sorter>div', function(e){
+
+			var column = this.parentNode.getAttribute('data-column');
+
+			if (this.className.match(/s-asc/)){
+				app.set('sort', column + '|asc');
+			}
+
+			if (this.className.match(/s-desc/)){
+				app.set('sort', column + '|desc');
+			}
+
+			$('#submit-button').click();
 		});
 	});
 
