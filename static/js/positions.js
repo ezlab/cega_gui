@@ -13,6 +13,11 @@
 	});
 
 
+	app.helper('plural', function (value, singular, plural, options) {
+			return String(value) + ' ' + (value == 1 ? singular : plural);
+	});
+
+
 	app.helper('sorter', function(column){
 
 		var s = '<div class="s-sorter" data-column="%1"><div class="s-asc %2"></div><div class="s-desc %3"></div></div>',
