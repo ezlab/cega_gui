@@ -35,7 +35,7 @@
 				element: $box.attr('data-element')
 			};
 
-		if ($box.find('.msa').length){
+		if ($box.find('div').length){
 			$box.empty();
 			return;
 		}
@@ -60,8 +60,10 @@
 			m.render();
 		}
 
+		$box.html('<div class="s-loading">Loading..</div>');
+
 		var elements = app.load('/element', values),
-			ready = app.render('elements.html').then(expand);
+			ready = app.render('elements.html', elements).then(expand);
 
 		$.when(elements, ready).then(initMSA);
 	}
