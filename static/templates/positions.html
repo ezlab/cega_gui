@@ -6,7 +6,7 @@
 			Click row to expand
 		</div>
 
-		Search results: {{state.request}} : {{count}} elements
+		Search results: {{state.request}} : {{plural count 'element' 'elements'}}
 	{{else}}
 		No results found for {{state.request}}. {{message}}
 	{{/if}}

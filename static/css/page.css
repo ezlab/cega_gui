@@ -19,15 +19,15 @@
 }
 
 .s-cega-logo {
-    float: left;
-    margin: 10px 20px;
-    font: bold 48px Arial;
-    color: #9C0063;
-    text-shadow: 2px 2px 2px #bba;
+	float: left;
+	margin: 10px 20px;
+	width: 150px;
+	height: 50px;
+	background: url(../images/cega-logo.png) no-repeat;
 }
 
 .s-cega-description {
-    margin-top: 40px;
+    margin-top: 35px;
 }
 
 .s-content {
