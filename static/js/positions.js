@@ -27,7 +27,12 @@
 
 
 	function appendRows(content){
+
 		$('#positions').append(content);
+
+		if (total == 1){
+			$('.s-position-cells').click();
+		}
 	}
 
 
