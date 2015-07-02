@@ -29,9 +29,11 @@
 
 .s-position-headers,
 .s-position-row {
-	display: inline-block;
+	display: block;
+	width: 100%;
 	white-space: nowrap;
 	border-left: 1px solid #ddc;
+	border-right: 1px solid #ddc;
 }
 
 .s-pos-header,
@@ -39,7 +41,6 @@
 	display: inline-block;
 	position: relative;
 	overflow: hidden;
-	width: 120px;
 	height: 2em;
 	padding: 0 8px;
 	border-right: 1px solid #ddc;
@@ -85,6 +86,12 @@
 	color: #663;
 }
 
-.s-col-length {width: 100px}
-.s-col-score {width: 100px}
-.s-col-select {width: 100px; text-align: center}
+
+.s-pos-header,
+.s-pos-cell {
+	width: 16%;
+}
+
+.s-col-length {width: 12%}
+.s-col-score {width: 12%}
+.s-col-select {width: 12%; text-align: center; border-right: none}
