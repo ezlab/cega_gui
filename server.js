@@ -17,6 +17,7 @@ var file = function(path, type){
 	};
 }
 
+app.use('/static/data/images/', api('/static/data/images/'));
 app.use('/static', express.static('static'));
 
 app.use('/position', api('/position'));
