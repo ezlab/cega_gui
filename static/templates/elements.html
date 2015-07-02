@@ -1,8 +1,16 @@
 
-<div class="link-ucsc">
-	<a href="{{link_UCSC}}" target="_new">USCS</a>
-</div>
+{{#if link_UCSC}}
+	<div class="link-ucsc">
+		<a href="{{link_UCSC}}" target="_new">USCS</a>
+	</div>
+{{/if}}
 
 <div class="msa">
 	<div class="msa-widget"></div>
 </div>
+
+{{#if image_file}}
+	<div class="image-file">
+		<img src="{{image_file}}"/>
+	</div>
+{{/if}}
