@@ -97,6 +97,7 @@
 .s-col-score {width: 9%}
 .s-col-chromatin {width: 9%}
 .s-col-dnase {width: 7%; text-align: center}
+.s-col-tfbs {width: 7%; text-align: center}
 .s-col-select {width: 4%; text-align: center; border-right: none}
 
 .s-col-dnase span {
