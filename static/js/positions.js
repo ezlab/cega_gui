@@ -18,6 +18,11 @@
 	});
 
 
+	app.helper('chromatin', function(value){
+		return String(value).replace(/^(\d*).*$/, 'chromatin-$1');
+	});
+
+
 	app.helper('sorter', function(column){
 
 		var s = '<div class="s-sorter" data-column="%1"><div class="s-asc %2"></div><div class="s-desc %3"></div></div>',
