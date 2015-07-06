@@ -89,9 +89,60 @@
 
 .s-pos-header,
 .s-pos-cell {
-	width: 16%;
+	width: 12%;
 }
 
-.s-col-length {width: 12%}
-.s-col-score {width: 12%}
-.s-col-select {width: 12%; text-align: center; border-right: none}
+.s-col-chrom {width: 8%}
+.s-col-length {width: 9%}
+.s-col-score {width: 9%}
+.s-col-chromatin {width: 9%}
+.s-col-dnase {width: 7%; text-align: center}
+.s-col-tfbs {width: 7%; text-align: center}
+.s-col-otherdb {width: 9%; text-align: right}
+.s-col-select {width: 6%; text-align: center; border-right: none}
+
+.s-col-dnase span {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #666;
+	border-radius: 2px;
+}
+
+.s-col-chromatin div {
+	display: inline-block;
+	width: 45px;
+	line-height: 10px;
+	white-space: normal;
+	vertical-align: middle;
+}
+
+.s-col-chromatin span {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 8px;
+	background: #ccc;
+	border: 1px solid #666;
+	margin-right: 1px;
+}
+
+span.chromatin-1  {background: #ff0000}
+span.chromatin-2  {background: #ff6969}
+span.chromatin-3  {background: #cf0bc6}
+span.chromatin-4  {background: #faca00}
+span.chromatin-5  {background: #faca00}
+span.chromatin-6  {background: #fffc04}
+span.chromatin-7  {background: #fffc04}
+span.chromatin-8  {background: #0abefe}
+span.chromatin-9  {background: #00b050}
+span.chromatin-10 {background: #00b050}
+span.chromatin-11 {background: #99ff66}
+span.chromatin-12 {background: #7f7f7f}
+span.chromatin-13 {background: #f5f5f5}
+span.chromatin-14 {background: #f5f5f5}
+span.chromatin-15 {background: #f5f5f5}
+
+.otherdb-vista {color: #009}
+.otherdb-condor {color: #999}
+.otherdb-ucne {color: #090}
