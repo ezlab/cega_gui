@@ -23,6 +23,12 @@
 	});
 
 
+	app.helper('grey', function(value){
+		var hex = Math.round(255 * (1-value/1000)).toString(16).replace(/^(\w)$/, '0$1');
+		return '#' + hex + hex + hex;
+	});
+
+
 	app.helper('sorter', function(column){
 
 		var s = '<div class="s-sorter" data-column="%1"><div class="s-asc %2"></div><div class="s-desc %3"></div></div>',
