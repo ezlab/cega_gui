@@ -98,7 +98,8 @@
 .s-col-chromatin {width: 9%}
 .s-col-dnase {width: 7%; text-align: center}
 .s-col-tfbs {width: 7%; text-align: center}
-.s-col-select {width: 4%; text-align: center; border-right: none}
+.s-col-otherdb {width: 9%; text-align: right}
+.s-col-select {width: 6%; text-align: center; border-right: none}
 
 .s-col-dnase span {
 	display: inline-block;
@@ -141,3 +142,7 @@ span.chromatin-12 {background: #7f7f7f}
 span.chromatin-13 {background: #f5f5f5}
 span.chromatin-14 {background: #f5f5f5}
 span.chromatin-15 {background: #f5f5f5}
+
+.otherdb-vista {color: #009}
+.otherdb-condor {color: #999}
+.otherdb-ucne {color: #090}

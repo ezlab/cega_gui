@@ -22,6 +22,10 @@
 			</div><div class="s-pos-cell s-col-dnase">
 				<span style="background:{{grey dnase}}" title="{{dnase}}">
 			</div><div class="s-pos-cell s-col-tfbs">{{tfbs}}
+			</div><div class="s-pos-cell s-col-otherdb">
+				{{#if vista}}<span class="otherdb-vista">V</span>{{/if}}
+				{{#if condor}}<span class="otherdb-condor">C</span>{{/if}}
+				{{#if ucne}}<span class="otherdb-ucne">U</span>{{/if}}
 			</div><div class="s-pos-cell s-col-select"><input type="checkbox">
 			</div>
 		</div>
