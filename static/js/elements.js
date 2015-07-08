@@ -24,6 +24,10 @@
 
 	function toggleRow(event){
 
+		if (event.target.nodeName == 'INPUT'){
+			return; // ignore checkbox clicks
+		}
+
 		var $box = $(event.currentTarget).next();
 
 			state = app.state(),
@@ -69,8 +73,43 @@
 	}
 
 
+	function selectRow(event){
+
+		var $checkbox = $(event.target),
+			checked = $checkbox.prop('checked'),
+			id = $checkbox.attr('data-id'),
+			selected = app.get('selected');
+
+		if (id=='all'){
+			$('.s-col-select>input').prop('checked', checked);
+			selected = {};
+		}
+		else if (selected.all){
+			$('.s-col-select>input').prop('checked', false);
+			$checkbox.prop('checked', true);
+			delete selected.all;
+			checked = true;
+		}
+
+		if (checked){
+			selected[id] = true;
+		}
+		else {
+			delete selected[id];
+		}
+
+		app.set('selected', selected);
+	}
+
+
+	app.on('navigate', function(params){
+		app.set('selected', {});
+	});
+
+
 	app.on('init', 	function init(){
 		$('#content').on('click', '.s-position-cells', toggleRow);
+		$('#content').on('click', '.s-col-select>input', selectRow);
 	});
 
 
