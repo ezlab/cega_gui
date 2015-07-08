@@ -14,7 +14,7 @@ var app = {};
 
 	app.set = function(name, value){
 
-		if (value === values[name]){
+		if (value === values[name] && typeof value != 'object'){
 			return;
 		}
 

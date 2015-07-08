@@ -2,8 +2,14 @@
 <div class="s-position-status">
 	{{#if count}}
 
-		<div class="s-position-hint">
-			Click row to expand
+		<div class="s-position-buttons">
+			<div class="s-button s-download-button">
+				<div class="s-button-text">Download</div>
+				<div class="s-button-menu">
+					<a id="download-fasta" target="_new">FASTA</a>
+					<a id="download-bed" target="_new">BED</a>
+				</div>
+			</div>
 		</div>
 
 		Search results: {{state.request}} : {{plural count 'element' 'elements'}}
