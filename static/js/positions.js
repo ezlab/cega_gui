@@ -54,11 +54,13 @@
 
 	function updateDisplay(){
 
-		var content = $('#content')[0];
+		var content = $('#content')[0],
+			data = rows.slice(rendered, rendered + 50),
+			selected = app.get('selected');
 
 		if (rendered < total && content.scrollHeight - content.offsetHeight - content.scrollTop < 100){
 
-			app.render('rows.html', rows.slice(rendered, rendered + 50)).then(appendRows);
+			app.render('rows.html', {data: data, selected: selected}).then(appendRows);
 
 			rendered += 50;
 

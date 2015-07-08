@@ -1,5 +1,5 @@
 
-{{#each .}}
+{{#each data}}
 	<div class="s-position-row">
 		<div class="s-position-cells">
 				  <div class="s-pos-cell s-col-chrom">{{chrom}}
@@ -26,7 +26,8 @@
 				{{#if vista}}<span class="otherdb-vista">V</span>{{/if}}
 				{{#if condor}}<span class="otherdb-condor">C</span>{{/if}}
 				{{#if ucne}}<span class="otherdb-ucne">U</span>{{/if}}
-			</div><div class="s-pos-cell s-col-select"><input type="checkbox" data-id="{{block}}.{{element}}">
+			</div><div class="s-pos-cell s-col-select">
+				<input type="checkbox" data-id="{{block}}.{{element}}" {{#if @root.selected.all}}checked{{/if}}>
 			</div>
 		</div>
 		<div class="s-position-details" data-block="{{block}}" data-element="{{element}}">
