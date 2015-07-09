@@ -25,6 +25,8 @@
 	background: linear-gradient(#eed, #ccb);
 	font: inherit;
 	line-height: 1.4em;
+	text-decoration: none;
+	color: #332!important;
 	cursor: default;
 }
 
