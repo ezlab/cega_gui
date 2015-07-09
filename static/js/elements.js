@@ -24,6 +24,10 @@
 
 	function toggleRow(event){
 
+		if (event.target.nodeName == 'INPUT'){
+			return; // ignore checkbox clicks
+		}
+
 		var $box = $(event.currentTarget).next();
 
 			state = app.state(),

@@ -2,8 +2,19 @@
 <div class="s-position-status">
 	{{#if count}}
 
-		<div class="s-position-hint">
-			Click row to expand
+		<div class="s-position-buttons">
+
+			{{#if link_UCSC_region}}
+				<a class="s-button" href="{{link_UCSC_region}}" target="_new">USCS</a>
+			{{/if}}
+
+			<div class="s-button s-download-button">
+				<div class="s-button-text">Download</div>
+				<div class="s-button-menu">
+					<a id="download-fasta" target="_new">FASTA</a>
+					<a id="download-bed" target="_new">BED</a>
+				</div>
+			</div>
 		</div>
 
 		Search results: {{state.request}} : {{plural count 'element' 'elements'}}
@@ -24,7 +35,7 @@
 		</div><div class="s-pos-header s-col-dnase">DNase
 		</div><div class="s-pos-header s-col-tfbs">TFBS
 		</div><div class="s-pos-header s-col-otherdb">Other DB
-		</div><div class="s-pos-header s-col-select"><input type="checkbox">
+		</div><div class="s-pos-header s-col-select"><input type="checkbox" data-id="all">
 		</div>
 	</div>
 {{/if}}

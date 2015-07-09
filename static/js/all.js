@@ -14,5 +14,6 @@
 	include('sidebar.js');
 	include('positions.js');
 	include('elements.js');
+	include('selection.js');
 
 })();

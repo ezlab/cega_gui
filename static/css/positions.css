@@ -1,11 +1,62 @@
 
 .s-position-status {
-	margin: 1em;
-	line-height: 1.4em;
+	margin: 1em 0;
+	line-height: 2em;
 }
 
-.s-position-hint {
+.s-position-status:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.s-position-buttons {
 	float: right;
+	position: relative;
+}
+
+.s-button {
+	display: inline-block;
+	position: relative;
+	padding: 5px 20px;
+	border: 1px solid #999;
+	border-radius: 5px;
+	background: #dadace;
+	background: linear-gradient(#eed, #ccb);
+	font: inherit;
+	line-height: 1.4em;
+	text-decoration: none;
+	color: #332!important;
+	cursor: default;
+}
+
+.s-button-menu {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	margin: 2px 0;
+	width: 100%;
+	padding: 10px 2px;
+	border: 1px solid #999;
+	border-radius: 3px;
+	background: #eed;
+	box-shadow: 3px 3px 3px rgba(55, 55, 55, 0.1);
+	z-index: 1000;
+}
+
+.s-button-menu>a {
+	display: block;
+	padding: 5px 20px;
+	color: #332;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+.s-button-menu>a:hover {
+	background: #ddc;
+	border-color: #bba;
 }
 
 .s-position-headers {
