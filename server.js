@@ -22,6 +22,8 @@ app.use('/static', express.static('static'));
 
 app.use('/position', api('/position'));
 app.use('/element', api('/element'));
+app.use('/fasta', api('/fasta'));
+app.use('/bed', api('/bed'));
 
 app.get('/', file('/index.html'));
 
