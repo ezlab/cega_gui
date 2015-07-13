@@ -1,6 +1,64 @@
 
-<h1>Help</h1>
+<h1 class="title">Help</h1>
+
+<h2>CEGA Overview</h2>
 
 <p>
-  Coming soon..
+CEGA, (Conserved Elements from Genomic Alignments), is a database of conserved vertebrate elements. The aim of this database is to provide acces to precomputed sets of conserved sequences from different species and at different levels of the vertebrate phylogeny. The identification of these conserved elements is based on the delineation of colinear blocks of 5 representative species (including human and one species at the root level of the clade), the multiple sequence alignment of these blocks using a global-local strategy (Mlagan) and the subsequent computation of elements using PhastCons.
+</p>
+
+
+<h2>Search Parameters</h2>
+
+<h3 id="Search">Search</h3>
+
+<p>
+First select the clade level on which to make your query: Vertebrates, Amniotes, Eutheria, Boreoeutheria and Euarchntoglires.
+You can then select the species in which you are interested in and finally input a genomich interval such as "chr2:100053307-200055635" or a gene name or ENSEMBL ID. You can also access each CEGA element with their own ID.
+</p>
+
+<h3 id="filters">Filters</h3>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in dapibus mi. Morbi libero magna, pulvinar a orci vitae, imperdiet mattis nulla. Nunc blandit laoreet arcu. Mauris sed nisl ut erat dictum aliquam ac in sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent feugiat euismod massa. Etiam finibus justo eu tincidunt pharetra. Donec tristique, ex at finibus ultrices, libero urna mattis neque, ut feugiat libero erat non eros. In hac habitasse platea dictumst. Sed nec consectetur nunc.
+</p>
+
+<h2>Results Display</h2>
+<h3 id="table">Table</h3>
+<p>
+  The table displays all CEGA conserved elements for the request. Filters can be applied to see only noncoding elements.
+Elements of each row can be further investigated by clicking on the row. Alignment and information of the other species are displayed with a screenshot fro this element on UCSC. 
+</p>
+<h3 id="score">Score</h3>
+<p>
+  The score is the PhastCons score for the element.
+</p>
+<h3 id="status">Status</h3>
+<p>
+  The status shows if the element is coding or not. It also shows if it is intergenic or intronic. Some long non-coding RNAs or miRNAs are also snnotated as such.
+</p>
+<h3 id="chromatin_hmm">Chromatin HMM</h3>
+<p>
+The chromatin HMM displays the status for 9 cell lines. Show color code and cell line pattern and reference.
+</p>
+<h3 id="dnase">DNase</h3>
+<p>
+DNase shows DNA accessibility score from ENCODE based on the merging of the score for 9 cell line. The grayscale represents the score percentage, black = 100% and white = 0% or data missing.
+</p>
+<h3 id="dnase">TFBS</h3>
+<p>
+The TFBS columns shows the number of TFBS that can be bound to that site. From compilation of ENCODE data
+</p>
+<h3 id="dnase">Other DB</h3>
+<p>
+Other DB column shows the presence of overlapping element in other known database about conserved elements. U is for UCNEbase, V is for Vista Enhancer Database, C is for Condor database
+</p>
+<h2>Data and Citations</h2>
+<h3 id="table_selection">Table selection</h3>
+<p>
+By selecting the wanted rows with the tickbox, you can download specifically data you are interested in in FASTA, Multi FASTA for the alignment, or BED format.
+</p>
+<h3 id="data_download">Data download</h3>
+<p>
+You can download bed or fasta files from CEGA for each species and each clade from <a href="ftp://cegg.unige.ch/CEGA/" target="_blank"> here</a>. 
 </p>
