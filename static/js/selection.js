@@ -44,6 +44,7 @@
 
 		$('#download-fasta').attr('href', '/fasta?' + url);
 		$('#download-bed').attr('href', '/bed?' + url);
+		$('#download-fastalign').attr('href', '/fastalign?' + url);
 
 	}
 
