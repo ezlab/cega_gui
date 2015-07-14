@@ -143,7 +143,7 @@
 	width: 12%;
 }
 
-.s-col-chrom {width: 8%}
+.s-col-position {width: 32%}
 .s-col-length {width: 9%}
 .s-col-score {width: 9%}
 .s-col-chromatin {width: 9%}

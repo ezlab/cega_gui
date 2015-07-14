@@ -5,7 +5,7 @@
 		<div class="s-position-buttons">
 
 			{{#if link_UCSC_region}}
-				<a class="s-button" href="{{link_UCSC_region}}" target="_new">USCS</a>
+				<a class="s-button" href="{{link_UCSC_region}}" target="_new">UCSC</a>
 			{{/if}}
 
 			<div class="s-button s-download-button">
@@ -13,6 +13,7 @@
 				<div class="s-button-menu">
 					<a id="download-fasta" target="_new">FASTA</a>
 					<a id="download-bed" target="_new">BED</a>
+					<a id="download-fastalign" target="_new">FASTA Alignment</a>
 				</div>
 			</div>
 		</div>
@@ -25,9 +26,7 @@
 
 {{#if data}}
 	<div class="s-position-headers">
-			  <div class="s-pos-header s-col-chrom">Chrom.
-		</div><div class="s-pos-header s-col-start">Start {{sorter 'start'}}
-		</div><div class="s-pos-header s-col-stop">Stop {{sorter 'stop'}}
+			  <div class="s-pos-header s-col-position">Position {{sorter 'start'}}
 		</div><div class="s-pos-header s-col-length">Length {{sorter 'length'}}
 		</div><div class="s-pos-header s-col-score">Score {{sorter 'score'}}
 		</div><div class="s-pos-header s-col-feature">Status

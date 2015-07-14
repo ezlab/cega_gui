@@ -3,19 +3,25 @@
 
 	function updateLinks(selected, state){
 
-		var id = [];
+		var id = [], url = '';
 
 		$.each(selected, function(key){
 			id.push(key);
 		});
 
-		$('#download-fasta').attr('href', '/fasta?clade=' + state.clade + '&request=' + id);
-		$('#download-bed').attr('href', '/bed?clade=' + state.clade + '&species=' + state.species + '&request=' + id);
+		var params = {
+			clade: state.clade,
+			species: state.species,
+			request: state.request,
+			length: state.length,
+			score: state.score,
+			status: state.status
+		};
 
 		var label = 'Download';
 
 		if (id.length){
-			label +=  ' ' + id.length + ' item';;
+			label +=  ' ' + id.length + ' item';
 		}
 
 		if (id.length > 1){
@@ -24,9 +30,22 @@
 
 		if (selected.all){
 			label = 'Download All';
+			params.all = true;
+		}
+		else {
+			params.items = String(id);
 		}
 
 		$('.s-download-button>.s-button-text').text(label);
+
+		$.each(params, function(key, value){
+			url += value ? (url ? '&' : '') + key + '=' + encodeURIComponent(value): '';
+		});
+
+		$('#download-fasta').attr('href', '/fasta?' + url);
+		$('#download-bed').attr('href', '/bed?' + url);
+		$('#download-fastalign').attr('href', '/fastalign?' + url);
+
 	}
 
 	app.on('selected', updateLinks);
