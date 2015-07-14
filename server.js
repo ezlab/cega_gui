@@ -24,6 +24,7 @@ app.use('/position', api('/position'));
 app.use('/element', api('/element'));
 app.use('/fasta', api('/fasta'));
 app.use('/bed', api('/bed'));
+app.use('/fastalign', api('/fastalign'));
 
 app.get('/', file('/index.html'));
 
