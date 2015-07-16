@@ -56,11 +56,11 @@
 
 		var content = $('#content')[0],
 			data = rows.slice(rendered, rendered + 50),
-			selected = app.get('selected');
+			all = app.get('all');
 
 		if (rendered < total && content.scrollHeight - content.offsetHeight - content.scrollTop < 100){
 
-			app.render('rows.html', {data: data, selected: selected}).then(appendRows);
+			app.render('rows.html', {data: data, all: all}).then(appendRows);
 
 			rendered += 50;
 
@@ -87,6 +87,7 @@
 			total = response.count;
 			response.state = app.state();
 			app.render('positions.html', response).then(updatePositions);
+			app.set('total', total);
 		}
 		else {
 			updateDisplay();
