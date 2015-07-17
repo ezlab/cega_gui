@@ -1,6 +1,8 @@
 
 (function(){
 
+	var isSelected;
+
 	function updateLinks(value, state){
 
 		var id = [], url = '';
@@ -22,6 +24,8 @@
 
 		var label = 'Download',
 			count = state.all ? state.total - id.length : id.length;
+
+		isSelected = !!count;
 
 		if (count){
 			label +=  ' ' + count + ' item';
@@ -76,6 +80,7 @@
 
 
 	app.on('navigate', function(params){
+		isSelected = false;
 		app.set('selected', {});
 		app.set('all', false);
 	});
@@ -83,7 +88,12 @@
 
 	function showMenu(event){
 		if(!$(event.target).is('.s-button-menu>a')){
-			$('.s-download-button>.s-button-menu').show();
+			if (isSelected){
+				$('.s-download-button>.s-button-menu').show();
+			}
+			else {
+				alert('None of the rows is selected for the download. Select rows with the checkbox in the right column.');
+			}
 			event.stopPropagation();
 		}
 	}
