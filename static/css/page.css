@@ -70,6 +70,10 @@
 	line-height: 23px;
 }
 
+.s-sidebar-wrap .s-input-small {
+	width: 117px;
+}
+
 .s-sidebar-label {
 	margin-top: 15px;
 	color: #654;
