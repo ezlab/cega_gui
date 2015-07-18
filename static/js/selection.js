@@ -1,12 +1,16 @@
 
 (function(){
 
-	function updateLinks(selected, state){
+	var isSelected;
+
+	function updateLinks(value, state){
 
 		var id = [], url = '';
 
-		$.each(selected, function(key){
-			id.push(key);
+		$.each(state.selected, function(key, value){
+			if (value !== state.all){
+				id.push(key);
+			}
 		});
 
 		var params = {
@@ -18,22 +22,22 @@
 			status: state.status
 		};
 
-		var label = 'Download';
+		var label = 'Download',
+			count = state.all ? state.total - id.length : id.length;
 
-		if (id.length){
-			label +=  ' ' + id.length + ' item';
+		isSelected = !!count;
+
+		if (count){
+			label +=  ' ' + count + ' item';
+			params.items = String(id);
 		}
 
-		if (id.length > 1){
+		if (count > 1){
 			label += 's';
 		}
 
-		if (selected.all){
-			label = 'Download All';
+		if (state.all){
 			params.all = true;
-		}
-		else {
-			params.items = String(id);
 		}
 
 		$('.s-download-button>.s-button-text').text(label);
@@ -48,6 +52,7 @@
 
 	}
 
+	app.on('all', updateLinks);
 	app.on('selected', updateLinks);
 
 
@@ -56,38 +61,39 @@
 		var $checkbox = $(event.target),
 			checked = $checkbox.prop('checked'),
 			id = $checkbox.attr('data-id'),
+			all = app.get('all');
 			selected = app.get('selected');
 
 		if (id=='all'){
 			$('.s-col-select>input').prop('checked', checked);
+			all = checked;
 			selected = {};
 		}
-		else if (selected.all){
-			$('.s-col-select>input').prop('checked', false);
-			$checkbox.prop('checked', true);
-			delete selected.all;
-			checked = true;
-		}
-
-		if (checked){
-			selected[id] = true;
-		}
 		else {
-			delete selected[id];
+			$('.s-col-select.s-pos-header>input').prop('checked', false);
+			selected[id] = checked;
 		}
 
 		app.set('selected', selected);
+		app.set('all', all);
 	}
 
 
 	app.on('navigate', function(params){
+		isSelected = false;
 		app.set('selected', {});
+		app.set('all', false);
 	});
 
 
 	function showMenu(event){
 		if(!$(event.target).is('.s-button-menu>a')){
-			$('.s-download-button>.s-button-menu').show();
+			if (isSelected){
+				$('.s-download-button>.s-button-menu').show();
+			}
+			else {
+				alert('None of the rows is selected for the download. Select rows with the checkbox in the right column.');
+			}
 			event.stopPropagation();
 		}
 	}

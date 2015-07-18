@@ -1,4 +1,14 @@
 
+.s-position-scroll {
+	position: absolute;
+	overflow: auto;
+	top: 55px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 15px;
+}
+
 .s-position-status {
 	margin: 1em 0;
 	line-height: 2em;
@@ -137,6 +147,23 @@
 	color: #663;
 }
 
+.s-pos-header>.s-help {
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	width: 14px;
+	height: 14px;
+	border-radius: 6px;
+	font-size: 10px;
+	font-weight: normal;
+	line-height: 1em;
+	text-align: center;
+}
+
+.s-col-score>.s-help {
+	right: 20px;
+}
+
 
 .s-pos-header,
 .s-pos-cell {
@@ -149,7 +176,7 @@
 .s-col-chromatin {width: 9%}
 .s-col-dnase {width: 7%; text-align: center}
 .s-col-tfbs {width: 7%; text-align: center}
-.s-col-otherdb {width: 9%; text-align: right}
+.s-col-otherdb {width: 9%; text-align: center}
 .s-col-select {width: 6%; text-align: center; border-right: none}
 
 .s-col-dnase span {

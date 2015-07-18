@@ -54,13 +54,13 @@
 
 	function updateDisplay(){
 
-		var content = $('#content')[0],
+		var content = $('.s-position-scroll')[0],
 			data = rows.slice(rendered, rendered + 50),
-			selected = app.get('selected');
+			all = app.get('all');
 
 		if (rendered < total && content.scrollHeight - content.offsetHeight - content.scrollTop < 100){
 
-			app.render('rows.html', {data: data, selected: selected}).then(appendRows);
+			app.render('rows.html', {data: data, all: all}).then(appendRows);
 
 			rendered += 50;
 
@@ -87,6 +87,7 @@
 			total = response.count;
 			response.state = app.state();
 			app.render('positions.html', response).then(updatePositions);
+			app.set('total', total);
 		}
 		else {
 			updateDisplay();
@@ -122,6 +123,8 @@
 			return;
 		}
 
+		app.set('view', 'data');
+
 		rows = [];
 		rendered = 0,
 		total = 0;
@@ -134,13 +137,6 @@
 
 
 	app.on('init', function(){
-
-		$('#content').on('scroll', function(){
-
-			if ($('#positions').length){
-				updateDisplay();
-			}
-		});
 
 		$('#content').on('click', '.s-sorter>div', function(e){
 
@@ -157,6 +153,13 @@
 			$('#submit-button').click();
 		});
 	});
+
+	app.scrollPositions =	function(){
+
+		if ($('#positions').length){
+			updateDisplay();
+		}
+	};
 
 })();
 
