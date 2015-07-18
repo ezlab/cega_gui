@@ -24,7 +24,9 @@
 	function submit(e){
 		if ((e.keyCode || e.which) == 13){
 			$(this).blur();
-			$('#submit-button').click();
+			window.setTimeout(function(){
+				$('#submit-button').click();
+			}, 0);
 		}
 	}
 
