@@ -123,6 +123,8 @@
 			return;
 		}
 
+		app.set('view', 'data');
+
 		rows = [];
 		rendered = 0,
 		total = 0;
