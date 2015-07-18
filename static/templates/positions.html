@@ -24,6 +24,7 @@
 	{{/if}}
 </div>
 
+<div class="s-position-scroll" onscroll="app.scrollPositions()">
 {{#if data}}
 	<div class="s-position-headers">
 			  <div class="s-pos-header s-col-position">Position {{sorter 'start'}}
@@ -45,8 +46,9 @@
 	</div>
 {{/if}}
 
-<div id="positions"></div>
+	<div id="positions"></div>
 
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
+</div>

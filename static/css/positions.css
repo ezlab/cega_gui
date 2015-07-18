@@ -1,4 +1,14 @@
 
+.s-position-scroll {
+	position: absolute;
+	overflow: auto;
+	top: 55px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0 15px;
+}
+
 .s-position-status {
 	margin: 1em 0;
 	line-height: 2em;

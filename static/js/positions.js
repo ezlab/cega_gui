@@ -54,7 +54,7 @@
 
 	function updateDisplay(){
 
-		var content = $('#content')[0],
+		var content = $('.s-position-scroll')[0],
 			data = rows.slice(rendered, rendered + 50),
 			all = app.get('all');
 
@@ -138,13 +138,6 @@
 
 	app.on('init', function(){
 
-		$('#content').on('scroll', function(){
-
-			if ($('#positions').length){
-				updateDisplay();
-			}
-		});
-
 		$('#content').on('click', '.s-sorter>div', function(e){
 
 			var column = this.parentNode.getAttribute('data-column');
@@ -160,6 +153,13 @@
 			$('#submit-button').click();
 		});
 	});
+
+	app.scrollPositions =	function(){
+
+		if ($('#positions').length){
+			updateDisplay();
+		}
+	};
 
 })();
 
