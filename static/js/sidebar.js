@@ -91,4 +91,15 @@
 		return $.when(load1, load2).then(init);
 	});
 
+
+	app.resetFilters = function(){
+
+		app.set('minLength', '');
+		app.set('maxLength', '');
+		app.set('minScore', '');
+		app.set('maxScore', '');
+		app.set('status', '');
+
+		$('#submit-button').click();
+	};
 })();

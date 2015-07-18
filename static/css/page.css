@@ -108,6 +108,11 @@
 	font: inherit;
 }
 
+.s-reset-filters {
+	display: block;
+	margin: 20px 0 5px;
+}
+
 /*  header  --------------- */
 
 .s-header {
