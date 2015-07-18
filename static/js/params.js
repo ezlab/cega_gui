@@ -55,6 +55,11 @@
 
 
 	function init(){
+
+		app.set('clade', 'vertebrata_human_69_all');
+		app.set('species', 'Homo Sapiens');
+		app.set('status', 'noncoding');
+
 		$('#submit-button').click(sendRequest);
 	}
 
