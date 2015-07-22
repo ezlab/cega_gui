@@ -44,6 +44,19 @@
 			return;
 		}
 
+
+		function addParams(results){
+
+			if (results){
+				results.clade = values.clade;
+				results.species = values.species;
+				results.block = values.block;
+				results.element = values.element;
+			}
+
+			return results;
+		}
+
 		function expand(content){
 			$box.html(content);
 		}
@@ -66,7 +79,7 @@
 
 		$box.html('<div class="s-loading">Loading..</div>');
 
-		var elements = app.load('/element', values),
+		var elements = app.load('/element', values).then(addParams),
 			ready = app.render('elements.html', elements).then(expand);
 
 		$.when(elements, ready).then(initMSA);
