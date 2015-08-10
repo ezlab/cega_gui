@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href="/static/vendors/chromosome-vis/angular-chromosome-vis.css">
+
+	<style>
+		h5 {
+			margin: 15px 0 -10px;
+			font-family: Arial;
+			font-size: 11px;
+			color: #666;
+		}
+	</style>
+
+	<script src="/static/vendors/underscore/underscore-min.js"></script>
+	<script src="/static/vendors/d3/d3.min.js"></script>
+	<script src="/static/vendors/jsdas/jsdas.min.js"></script>
+	<script src="/static/vendors/angular/angular.min.js"></script>
+	<script src="/static/vendors/chromosome-vis/angular-chromosome-vis.js"></script>
+
+	<script>
+		angular
+			.module('angularChromosomeVisApp', ['angularChromosomeVis'])
+			.controller('mainCtrl', ['$scope', '$timeout', 'chrSelectors', function($scope, $timeout, chrSelectors) {
+				$scope.$on('selectors:updated', function(event, selectors) {
+					$timeout(function() {
+						var s = selectors[0];
+
+						if (s && top.app){
+							top.app.navigate('', {
+								clade: 'vertebrata_human_69_all',
+								species: 'Homo Sapiens',
+								request: 'chr' + s.chr + ':' + s.start + '-' + s.end,
+								status: 'noncoding'
+							});
+						}
+					})
+				});
+		  }]);
+	</script>
+</head>
+<body ng-app="angularChromosomeVisApp" ng-controller="mainCtrl">
+
+  <h5>chr 1:</h5>
+  <div chromosome="" chr="1" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 2:</h5>
+  <div chromosome="" chr="2" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 3:</h5>
+  <div chromosome="" chr="3" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 4:</h5>
+  <div chromosome="" chr="4" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 5:</h5>
+  <div chromosome="" chr="5" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 6:</h5>
+  <div chromosome="" chr="6" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 7:</h5>
+  <div chromosome="" chr="7" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 8:</h5>
+  <div chromosome="" chr="8" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 9:</h5>
+  <div chromosome="" chr="9" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 10:</h5>
+  <div chromosome="" chr="10" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 11:</h5>
+  <div chromosome="" chr="11" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 12:</h5>
+  <div chromosome="" chr="12" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 13:</h5>
+  <div chromosome="" chr="13" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 14:</h5>
+  <div chromosome="" chr="14" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 15:</h5>
+  <div chromosome="" chr="15" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 16:</h5>
+  <div chromosome="" chr="16" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 17:</h5>
+  <div chromosome="" chr="17" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 18:</h5>
+  <div chromosome="" chr="18" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 19:</h5>
+  <div chromosome="" chr="19" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 20:</h5>
+  <div chromosome="" chr="20" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 21:</h5>
+  <div chromosome="" chr="21" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr 22:</h5>
+  <div chromosome="" chr="22" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr x:</h5>
+  <div chromosome="" chr="x" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+
+  <h5>chr y:</h5>
+  <div chromosome="" chr="y" rel-size="true" axis="true" assembly="37" width="inherit" height="20" mode="single"></div>
+</body>
+</html>
