@@ -19,6 +19,14 @@
 	<script src="/static/vendors/chromosome-vis/angular-chromosome-vis.js"></script>
 
 	<script>
+
+		var features = JSDAS.features;
+
+		JSDAS.features = function(url, ok, err, version){
+			url = url.replace(/^.+segment=(.+)$/, '/karyotype?chrom=chr$1');
+			return features.call(JSDAS, url, ok, err, version);
+		};
+
 		angular
 			.module('angularChromosomeVisApp', ['angularChromosomeVis'])
 			.controller('mainCtrl', ['$scope', '$timeout', 'chrSelectors', function($scope, $timeout, chrSelectors) {
