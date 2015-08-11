@@ -15,10 +15,10 @@ var file = function(path, type){
 	return function(req, res){
 		res.sendFile(__dirname + path, type ? {headers: {'Content-Type': type}} : {});
 	};
-}
+};
 
 app.use('/static/data/images/', api('/static/data/images/'));
-app.use('/static', express.static('static'));
+app.use('/static', express.static('static', {maxAge: '1h'}));
 
 app.use('/position', api('/position'));
 app.use('/element', api('/element'));
