@@ -26,6 +26,7 @@ app.use('/fasta', api('/fasta'));
 app.use('/bed', api('/bed'));
 app.use('/fastalign', api('/fastalign'));
 app.use('/block', api('/block'));
+app.use('/karyotype', api('/karyotype'));
 
 app.get('/', file('/index.html'));
 
