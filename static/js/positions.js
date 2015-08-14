@@ -42,6 +42,30 @@
 	});
 
 
+	var	resizeSensor,
+		$resizeSource,
+		$resizeTarget;
+
+	function resizeHeaders(){
+		$resizeTarget.width($resizeSource.width());
+	}
+
+	function startResizeSensor(){
+
+		$resizeSource = $('#positions');
+		$resizeTarget = $('.s-position-headers-wrap');
+
+		resizeSensor = new ResizeSensor($resizeSource, resizeHeaders);
+	}
+
+	function stopResizeSensor(){
+		resizeSensor.detach();
+		resizeSensor = null;
+		$resizeSource = null;
+		$resizeTarget = null;
+	}
+
+
 	function appendRows(content){
 
 		$('#positions').append(content);
@@ -57,6 +81,10 @@
 		var content = $('.s-position-scroll')[0],
 			data = rows.slice(rendered, rendered + 50),
 			all = app.get('all');
+
+		if (!resizeSensor){
+			startResizeSensor();
+		}
 
 		if (rendered < total && content.scrollHeight - content.offsetHeight - content.scrollTop < 100){
 
@@ -118,6 +146,10 @@
 
 
 	app.on('navigate', function(params){
+
+		if (resizeSensor){
+			stopResizeSensor();
+		}
 
 		if (!params.clade || !params.species){
 			return;

@@ -2,22 +2,26 @@
 .s-position-scroll {
 	position: absolute;
 	overflow: auto;
-	top: 55px;
+	top: 100px;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	padding: 0 15px;
 }
 
-.s-position-status {
-	margin: 1em 0;
-	line-height: 2em;
+.s-position-headers-wrap {
+	position: absolute;
+	top: auto;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
-.s-position-status:after {
-	content: '';
-	display: block;
-	clear: both;
+.s-position-status {
+	position: relative;
+	height: 100px;
+	padding-top: 1em;
+	line-height: 2em;
 }
 
 .s-position-buttons {
