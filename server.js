@@ -4,7 +4,7 @@ var express = require('express'),
 	app = express();
 
 var api = function(path){
-	return proxy('everest.unige.ch:8000', {
+	return proxy('cega.ezlab.org', {
 		forwardPath: function(req, res){
 			return path + String(req.url).replace(/^\//, '');
 		}
