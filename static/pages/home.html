@@ -6,10 +6,27 @@
   The aim of this database is to provide acces to precomputed sets of conserved sequences from different species
   and at different levels of the vertebrate phylogeny.
   The identification of these conserved elements is based on the delineation of colinear blocks of 5 representative species (including human and one species at the root level of the clade), the multiple sequence alignment of these blocks using a global-local strategy (Mlagan) and the subsequent computation of elements using PhastCons.
+  </p><p>
+<b>Possible queries:</b>
+<br>
+<ul>
+	<li>No input displays <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&status=noncoding">all elements for this species</a></b>, example here is for all vertebrate human noncoding elements.</l>
+        <li>Genomic interval such as <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=chr2%3A100053307-200055635&status=noncoding">chr2:100053307-200055635</a></b></li>
+        <li>Chromosome name such as <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=chr4&status=noncoding">chr4</a></b></li>
+        <li>Gene name such as <b><a href="/?clade=amniota_human_55&species=Homo+Sapiens&request=hoxd1&status=noncoding">hoxd1</a></b> displays elements in the gene location +/- 500bp.</li>
+        <li>CEGA element ID such as <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=2.65">2.65</a></b></li>
+</ul>
 </p>
-
 <p>
-  Example Queries: <a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=chr7%3A26482212-27822811"> Vertebrata, Homo Sapiens, chr7:26482212-27822811 </a>
+<b><a href="/?page=help" >Help page</a></b>
 </p>
-
+<p>
+<b><a href="ftp://cegg.unige.ch/CEGA" target="_blank">Data download</a></b>
+</p>
+<p>
+<b>Browse Human CEGA elements by chromosome view.</b>
+</p>
+<p>
+Click on a band and expand region of interest. Selected region will be used on the right panel. Click submit on the right to view elements from the selected region.
+</p>
 <iframe src="/static/pages/chromosomes.html" width="100%" height="2400" frameBorder="0"></iframe>

@@ -13,14 +13,32 @@ CEGA, (Conserved Elements from Genomic Alignments), is a database of conserved v
 <h3 id="search">Search</h3>
 
 <p>
-First select the clade level on which to make your query: Vertebrates, Amniotes, Eutheria, Boreoeutheria and Euarchntoglires.
-You can then select the species in which you are interested in and finally input a genomich interval such as "chr2:100053307-200055635" or a gene name or ENSEMBL ID. You can also access each CEGA element with their own ID.
-</p>
+<ol>
+<li>Select the clade level on which to make your query: Vertebrates, Amniotes, Eutheria, Boreoeutheria and Euarchontolires.</li>
+<li>Select your species of interest.  </li>
+<li>Input a your gene or genomic region of interest.</li>
+<br>
+<b>Possible queries:</b>
+<br>
+<ul>
+	<li>No input displays  <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&status=noncoding"> all elements for this species, example </a></b>, here for all vertebrate human noncoding elements.</l>
+	<li>Genomic interval such as <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=chr2%3A100053307-200055635&status=noncoding">chr2:100053307-200055635</a></b></li>
+	<li>Chromosome name such as <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=chr4&status=noncoding">chr4</a></b></li>
+	<li>Gene name such as <b><a href="/?clade=amniota_human_55&species=Homo+Sapiens&request=hoxd1&status=noncoding">hoxd1</a></b> displays elements in the gene location +/- 500bp.</li>
+	<li>CEGA element ID such as <b><a href="/?clade=vertebrata_human_69_all&species=Homo+Sapiens&request=2.65">2.65</a></b></li>
+	<li>Use the chromosome view on the <b><a href = "/" target="_blank">home page</a></b> to select a region of interest. First click on a block and then you can expand the desired region. The selection appears as genomic coordinates on the right panel. Click on submit to obtain results of conserved elements in that location.</li>
 
-<h3 id="filters">Filters</h3>
+</ul>
+</ol>
+</p>
+<h3>Species and assemblies </h3>
+<p>Table of species and their corresponding assemblies used in this version of CEGA:<br />
+<a href="/?page=species_assemblies">CEGA species assemblies</a>
+</p>
+<h3>Filters</h3>
 
 <p>
- Filters can be used to obtain more specific list of CEGA elements.
+  Filters can be used to obtain more specific list of CEGA elements.
   <br>
   Possible filters are:
 <ul>
@@ -28,38 +46,92 @@ You can then select the species in which you are interested in and finally input
 <li>Score: PhastCons score, define a range from - to (See Score description below)</li>
 <li>Status: Chose to display all conserved elements or only noncoding elements, only coding, only intronic or intergenic elements based on annotation.</li>
 </ul>
-
 </p>
-
 <h2>Results Display</h2>
 <h3 id="table">Table</h3>
 <p>
-  The table displays all CEGA conserved elements for the request. Filters can be applied to see only noncoding elements.
-Elements of each row can be further investigated by clicking on the row. Alignment and information of the other species are displayed with a screenshot fro this element on UCSC.
+  The table displays all CEGA conserved elements for the request with filters.
+Elements of each row can be further investigated by clicking on the row. Multiple sequence alignment is shown in the row view as well as  visualization of the element genomic surrounding region with a screenshot from UCSC. For each request, you can directly access this region with the CEGA track on UCSC or download bed or fasta for the selected elements.
 </p>
 <h3 id="score">Score</h3>
 <p>
-  The score is the PhastCons score for the element.
-</p>
+  The score is the PhastCons score for the element. Phastcons uses a phylo-HMM with a conserved and a non-conserved state. The conserved elements from CEGA are likely to follow the conserved state of the model. The scores are log-odds scores of the probability under the conserved model minus the probability under the non-conserved model, with a higher score reflecting a higher probability of the element being under the conserved status.
+<br>
+  <br>
+  <b>Reference:</b>
+<ul>
+  <li>Siepel A, Bejerano G, Pedersen JS, Hinrichs A, Hou M, Rosenbloom K, Clawson H, Spieth J, Hillier LW, Richards S, Weinstock GM, Wilson RK, Gibbs RA, Kent WJ, Miller W, and Haussler D. Evolutionarily conserved elements in vertebrate, insect, worm, and yeast genomes. Genome Res 15:1034-1050, 2005.
+</li></ul></p>
+
 <h3 id="status">Status</h3>
 <p>
-  The status shows if the element is coding or not. It also shows if it is intergenic or intronic. Some long non-coding RNAs or miRNAs are also snnotated as such.
+  The status shows if the element is coding or noncoding and also if it is intergenic or intronic. Some long non-coding RNAs or miRNAs are also annotated as such. These status are based on annotation from ENSEMBL genes, GENCODE comprehensive set,  Human Body Map lincRNAs, and miRBase
+  <br><b>References:</b>
+<ul><li>Harrow J, Frankish A, Gonzalez JM, Tapanari E, Diekhans M, Kokocinski F, Aken BL, Barrell D, Zadissa A, Searle S et al. GENCODE: the reference human genome annotation for The ENCODE Project. Genome Res. 2012 Sep;22(9):1760-74. PMID: 22955987; PMC: PMC3431492</li>
+  <li><br>Cabili MN, Trapnell C, Goff L, Koziol M, Tazon-Vega B, Regev A, Rinn JL. Integrative annotation of human large intergenic noncoding RNAs reveals global properties and specific subclasses. Genes Dev. 2011 Sep 15;25(18):1915-27. PMID: 21890647; PMC: PMC3185964</li>
+  <br>
+  <li>Griffiths-Jones S, Saini HK, van Dongen S, Enright AJ. miRBase: tools for microRNA genomics. Nucleic Acids Res. 2008 Jan;36(Database issue):D154-8. PMID: 17991681; PMC: PMC2238936</li>
+</ul>
 </p>
-<h3 id="chromatin_hmm">Chromatin HMM</h3>
+<h3 id="chromatin_hmm">Chromatin State</h3>
 <p>
-The chromatin HMM displays the status for 9 cell lines. Show color code and cell line pattern and reference.
+The chromatin state displays the state segmentation for 9 human cell lines from ENCODE based on Chromatin marks. When looking for other species the annotation from human is shown.
+The 9 cell lines are displayed in this order:
+<br>
+<img src="/static/images/cell_line.jpg" style=width:"119";height:"50" alt="cell_line_dec">
+<br>1.GM12878	2.H1-hESC	3.HepG2	4.HMEC	5.HSMM<br>
+6.HUVEC	7.K562	8.NHEK	9.NHLF
+<br><br>
+The color code is the following:
+<ol>
+<li><div id = "circle1"></div> Active Promoter</li>
+<li><div id = "circle2"></div> Weak promoter</li>
+<li><div id = "circle3"></div> Inactive / Poised promoter</li>
+<li><div id = "circle4"></div> Strong Enhancer</li>
+<li><div id = "circle5"></div> Strong Enhancer</li>
+<li><div id = "circle6"></div><span class="chromatin-6"></span> Weak / Poised Enhancer</li>
+<li><div id = "circle7"></div> Weak / Poised Enhancer</li>
+<li><div id = "circle8"></div> Insulator</li>
+<li><div id = "circle9"></div> Transcriptional transition</li>
+<li><div id = "circle10"></div> Transcriptional elogation</li>
+<li><div id = "circle11"></div> Weak Transcribed</li>
+<li><div id = "circle12"></div> Polycomb repressed</li>
+<li><div id = "circle13"></div> Heterochromatin / Low signal</li>
+<li><div id = "circle14"></div> Repetitive / Copy Number Variation</li>
+<li><div id = "circle15"></div> Repetitive / Copy Number Variation</li>
+</ol>
+<b>Reference:</b>
+<ul>
+<li>Ernst J, Kellis M. Discovery and characterization of chromatin states for systematic annotation of the human genome. Nat Biotechnol. 2010 Aug;28(8):817-25.</li>
+</ul>
 </p>
+
 <h3 id="dnase">DNase</h3>
 <p>
-DNase shows DNA accessibility score from ENCODE based on the merging of the score for 9 cell line. The grayscale represents the score percentage, black = 100% and white = 0% or data missing.
-</p>
+DNase shows DNA accessibility score from ENCODE based on the merging of the score for 9 human cell lines. For species other than human, the human data for this element is shown. The grayscale represents the score percentage, black = 100% and white = 0% or data missing.
+<br>
+<img src="/static/images/dnase_scale.jpg" width="266" height="65" alt="dnase_scale"> </p>
+<b>Reference:</b>
+<ul>
+<li>Thurman RE, Rynes E, Humbert R, Vierstra J, Maurano MT, Haugen E, Sheffield NC, Stergachis AB, Wang H, Vernot B et al. The accessible chromatin landscape of the human genome. Nature. 2012 Sep 6;489(7414):75-82. PMID: 22955617; PMC: PMC3721348</li>
+</ul>
 <h3 id="tfbs">TFBS</h3>
 <p>
-The TFBS columns shows the number of TFBS that can be bound to that site. From compilation of ENCODE data
+The TFBS columns shows the maximum number of transcription fators that were reported as bound to a site overlapping the element from the Uniform Peaks from ENCODE.
+</br><b>Reference:</b>
+<ul><li>
+ENCODE Project Consortium. An integrated encyclopedia of DNA elements in the human genome. Nature. 2012 Sep 6;489(7414):57-74. PMID: 22955616; PMCID: PMC3439153</li>
+</ul>
 </p>
 <h3 id="otherdb">Other DB</h3>
 <p>
-Other DB column shows the presence of overlapping element in other known database about conserved elements. U is for UCNEbase, V is for Vista Enhancer Database, C is for Condor database
+Other DB column shows the presence of overlapping element in other known database about conserved elements. <span style= "color:#090;font-weight:bold">U</span> is for UCNEbase, <span style= "color:#009;font-weight:bold">V</span> is for Vista Enhancer Database, <span style= "color:#999;font-weight:bold">C</span> is for Condor database
+</br><b>References:</b>
+<ul>
+<li>Dimitrieva S, Bucher P. UCNEbase—a database of ultraconserved non-coding elements and genomic regulatory blocks. Nucleic Acids Research. 2013;41(Database issue):D101-D109. doi:10.1093/nar/gks1092. </li>
+<li>Visel A, Minovitsky S, Dubchak I, Pennacchio LA. VISTA Enhancer Browser—a database of tissue-specific human enhancers. Nucleic Acids Research. 2007;35(Database issue):D88-D92. doi:10.1093/nar/gkl822.</li>
+<li>Woolfe A, Goode DK, Cooke J, et al. CONDOR: a database resource of developmentally associated conserved non-coding elements. BMC Developmental Biology. 2007;7:100. doi:10.1186/1471-213X-7-100.</li>
+</ul>
 </p>
 <h2>Data and Citations</h2>
 <h3 id="table_selection">Table selection</h3>
@@ -68,5 +140,5 @@ By selecting the wanted rows with the tickbox, you can download specifically dat
 </p>
 <h3 id="data_download">Data download</h3>
 <p>
-You can download bed or fasta files from CEGA for each species and each clade from <a href="ftp://cegg.unige.ch/CEGA/" target="_blank"> here</a>.
+You can download bed or fasta files from CEGA for each species and each clade from <b><a href="ftp://cegg.unige.ch/CEGA/" target="_blank"> here</a></b>.
 </p>

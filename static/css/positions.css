@@ -228,3 +228,141 @@ span.chromatin-15 {background: #f5f5f5}
 .otherdb-vista {color: #009}
 .otherdb-condor {color: #999}
 .otherdb-ucne {color: #090}
+
+#circle1 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #ff0000;
+	border: 1px solid #666;
+}
+
+#circle2 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #ff6969;
+	border: 1px solid #666;
+}
+
+#circle3 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #cf0bc6;
+	border: 1px solid #666;
+}
+
+#circle4 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #faca00;
+	border: 1px solid #666;
+}
+
+#circle5 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #faca00;
+	border: 1px solid #666;
+}
+
+#circle6 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #fffc04;
+	border: 1px solid #666;
+}
+
+#circle7 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #fffc04;
+	border: 1px solid #666;
+}
+
+#circle8 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #0abefe;
+	border: 1px solid #666;
+}
+
+#circle9 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #00b050;
+	border: 1px solid #666;
+}
+
+
+#circle10 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #00b050;
+	border: 1px solid #666;
+}
+
+
+#circle11 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #99ff66;
+	border: 1px solid #666;
+}
+
+#circle12 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #7f7f7f;
+	border: 1px solid #666;
+}
+
+#circle13 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #f5f5f5;
+	border: 1px solid #666;
+}
+
+#circle14 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #f5f5f5;
+	border: 1px solid #666;
+}
+
+
+#circle15 {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+    border-radius: 8px;
+	background: #f5f5f5;
+	border: 1px solid #666;
+}
