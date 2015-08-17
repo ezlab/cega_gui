@@ -155,10 +155,18 @@
 
 .s-header-menu-2 {
 	position: absolute;
-	right: 15px;
+	left: 250px;
 	bottom: 0px;
 	line-height: 25px;
 	font-size: 11px;
+}
+
+.s-header-menu-3 {
+        position: absolute;
+        left: 400px;
+        bottom: 0px;
+        line-height: 25px;
+        font-size: 11px;
 }
 
 .s-header a {
@@ -330,3 +338,15 @@
 	line-height: 2em;
 	background: url(../images/loading.gif) 5px 50% no-repeat;
 }
+
+table {
+	border-top:1px solid #ddd
+}
+table tr:nth-child(even){
+      background-color:#eee;
+}
+table tr:nth-child(odd){
+	      background-color:#fff;
+      }
+
+

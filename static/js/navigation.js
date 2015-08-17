@@ -29,6 +29,7 @@
 
 	function navigate(){
 		app.fireEvent('navigate', params());
+		ga('send', 'pageview', '/' + location.search); // Google analytics
 	}
 
 
