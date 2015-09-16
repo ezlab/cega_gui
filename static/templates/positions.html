@@ -18,9 +18,9 @@
 			</div>
 		</div>
 
-		Search results: {{state.request}} : {{plural count 'element' 'elements'}}
+		Search results: {{request}} : {{plural count 'element' 'elements'}}
 	{{else}}
-		No results found for {{state.request}}. {{message}}
+		No results found for {{request}}. {{message}}
 	{{/if}}
 
 	{{#if data}}
