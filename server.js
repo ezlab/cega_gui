@@ -3,31 +3,14 @@ var express = require('express'),
 	proxy = require('express-http-proxy'),
 	app = express();
 
-var api = function(path){
-	return proxy('cega.ezlab.org', {
-		forwardPath: function(req, res){
-			return path + String(req.url).replace(/^\//, '');
-		}
-	});
-};
+var routes = ['/position', '/element', '/fasta', '/bed', '/fastalign', '/block', '/karyotype'];
 
-var file = function(path, type){
-	return function(req, res){
-		res.sendFile(__dirname + path, type ? {headers: {'Content-Type': type}} : {});
-	};
-};
-
-app.use('/static/data/images/', api('/static/data/images/'));
 app.use('/static', express.static('static', {maxAge: '1h'}));
 
-app.use('/position', api('/position'));
-app.use('/element', api('/element'));
-app.use('/fasta', api('/fasta'));
-app.use('/bed', api('/bed'));
-app.use('/fastalign', api('/fastalign'));
-app.use('/block', api('/block'));
-app.use('/karyotype', api('/karyotype'));
+app.get(routes, proxy('cega.ezlab.org'));
 
-app.get('/', file('/index.html'));
+app.get('/', function(req, res){
+	res.sendFile(__dirname + '/index.html');
+});
 
 app.listen(process.env.PORT || 80);
