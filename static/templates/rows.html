@@ -21,9 +21,9 @@
 				<span style="background:{{grey dnase}}" title="{{dnase}}">
 			</div><div class="s-pos-cell s-col-tfbs">{{tfbs}}
 			</div><div class="s-pos-cell s-col-otherdb">
-				{{#if vista}}<span class="otherdb-vista">V</span>{{/if}}
-				{{#if condor}}<span class="otherdb-condor">C</span>{{/if}}
-				{{#if ucne}}<span class="otherdb-ucne">U</span>{{/if}}
+				{{#if vista}}<a class="otherdb-vista" href="http://enhancer.lbl.gov/cgi-bin/imagedb3.pl?form=presentation&show=1&organism_id=1&experiment_id={{vista}}" title="Vista Enhancer Database" target="_blank">V</a>{{/if}}
+				{{#if condor}}<a class="otherdb-condor" href="http://condor.nimr.mrc.ac.uk/cgi-bin/show_cne.cgi?cneid={{condor}}" title="Condor database" target="_blank">C</a>{{/if}}
+				{{#if ucne}}<a class="otherdb-ucne" href="http://ccg.vital-it.ch/UCNEbase/view.php?data=ucne&entry={{ucne}}" title="UCNEbase" target="_blank">U</a>{{/if}}
 			</div><div class="s-pos-cell s-col-select">
 				<input type="checkbox" data-id="{{block}}.{{element}}" {{#if @root.all}}checked{{/if}}>
 			</div>

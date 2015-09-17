@@ -108,6 +108,19 @@
 	font: inherit;
 }
 
+
+.s-zoom-out {
+	display: block;
+	margin: 15px 0 0;
+}
+
+
+.s-zoom-out.s-disabled {
+	color: #ccc!important;
+	cursor: default;
+}
+
+
 .s-reset-filters {
 	display: block;
 	margin: 20px 0 5px;
