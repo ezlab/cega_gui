@@ -82,6 +82,10 @@
 		app.on('clade', function(clade){
 			updateSpecies();
 		});
+
+		app.on('query', function(){
+			enableZoomOut();
+		});
 	}
 
 
@@ -104,4 +108,40 @@
 
 		$('#submit-button').click();
 	};
+
+
+	app.zoomOut = function(){
+
+		var query = app.get('query');
+
+		if (!String(query).match(/(\S+):(\d+)-(\d+)/)){
+			return;
+		}
+
+		var chr = RegExp.$1,
+			start = Math.max(Number(RegExp.$2)-1000, 0),
+			end = Number(RegExp.$3) + 1000;
+
+		app.set('request', chr + ':' + start + '-' + end);
+
+		$('#submit-button').click();
+	};
+
+
+	function enableZoomOut(query){
+
+		var query = app.get('query'),
+			disabled = 's-disabled',
+			$link = $('.s-zoom-out');
+
+		if (String(query).match(/(\S+):(\d+)-(\d+)/)){
+			$link.removeClass(disabled);
+		}
+		else {
+			$link.addClass(disabled);
+		};
+	}
+
+
+
 })();

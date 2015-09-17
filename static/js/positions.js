@@ -116,6 +116,7 @@
 			response.state = app.state();
 			app.render('positions.html', response).then(updatePositions);
 			app.set('total', total);
+			app.set('query', response.request);
 		}
 		else {
 			updateDisplay();
