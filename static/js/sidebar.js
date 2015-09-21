@@ -2,7 +2,7 @@
 (function(){
 
 	var fields = {},
-		statuses = ['all', 'coding', 'intronic', 'intergenic', 'noncoding'],
+		statuses = ['noncoding', 'intronic', 'intergenic', 'protein-coding', 'RNA-coding', 'all'],
 		lists = {};
 
 
