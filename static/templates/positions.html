@@ -4,10 +4,6 @@
 
 		<div class="s-position-buttons">
 
-			{{#if link_UCSC_region}}
-				<a class="s-button" href="{{link_UCSC_region}}" target="_new">UCSC</a>
-			{{/if}}
-
 			<div class="s-button s-download-button">
 				<div class="s-button-text">Download</div>
 				<div class="s-button-menu">
@@ -18,7 +14,15 @@
 			</div>
 		</div>
 
-		Search results: {{request}} : {{plural count 'element' 'elements'}}	
+		Search results:
+
+		{{#if link_UCSC_region}}
+			<a href="{{link_UCSC_region}}" target="_new">{{request}}</a>
+		{{else}}
+			{{request}}
+		{{/if}}
+
+		: {{plural count 'element' 'elements'}}
 	{{else}}
 		No results found for {{request}}. {{message}}
 	{{/if}}
