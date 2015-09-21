@@ -3,7 +3,7 @@
 <h2>CEGA Overview</h2>
 
 <p>
-CEGA, (Conserved Elements from Genomic Alignments), is a database of conserved vertebrate elements. The aim of this database is to provide acces to precomputed sets of conserved sequences from different species and at different levels of the vertebrate phylogeny. The identification of these conserved elements is based on the delineation of colinear blocks of 5 representative species (including human and one species at the root level of the clade), the multiple sequence alignment of these blocks using a global-local strategy (Mlagan) and the subsequent computation of elements using PhastCons.
+CEGA, (Conserved Elements from Genomic Alignments), is a database of conserved vertebrate elements. This database provides acces to precomputed sets of conserved sequences from different species and at different levels of the vertebrate phylogeny. The identification of these conserved elements is based on the delineation of colinear blocks of 5 representative species (including human and one species at the root level of the clade), the multiple sequence alignment of these blocks using a global-local strategy (Mlagan) and the subsequent computation of elements using PhastCons.
 </p>
 
 
@@ -41,9 +41,9 @@ CEGA, (Conserved Elements from Genomic Alignments), is a database of conserved v
   <br>
   Possible filters are:
 <ul>
-<li>Length: define a range from - to</li>
+<li>Length: Element length, define a range from - to</li>
 <li>Score: PhastCons score, define a range from - to (See Score description below)</li>
-<li>Status: Chose to display all conserved elements or only noncoding elements, only coding, only intronic or intergenic elements based on annotation.</li>
+<li>Status: Choose to display all conserved elements or subsets based on alignments: noncoding, intronic, intergenic, protein-coding or RNA-coding elements.</li>
 </ul>
 </p>
 <h2>Results Display</h2>
@@ -64,7 +64,7 @@ Elements of each row can be further investigated by clicking on the row. Multipl
 
 <h3 id="status">Status</h3>
 <p>
-  The status shows if the element is coding or noncoding and also if it is intergenic or intronic. Some long non-coding RNAs or miRNAs are also annotated as such. These status are based on annotation from ENSEMBL genes, GENCODE comprehensive set,  Human Body Map lincRNAs, and miRBase
+  The status shows if the element is coding or noncoding, the latter category being divided into intergenic and intronic elements. Annotations for long non-coding RNAs and miRNAs are also available through the RNA-coding filter. These statuses are based on annotation from ENSEMBL genes, GENCODE comprehensive set,  Human Body Map lincRNAs, and miRBase
   <br><b>References:</b>
 <ul><li>Harrow J, Frankish A, Gonzalez JM, Tapanari E, Diekhans M, Kokocinski F, Aken BL, Barrell D, Zadissa A, Searle S et al. GENCODE: the reference human genome annotation for The ENCODE Project. Genome Res. 2012 Sep;22(9):1760-74. PMID: 22955987; PMC: PMC3431492</li>
   <li><br>Cabili MN, Trapnell C, Goff L, Koziol M, Tazon-Vega B, Regev A, Rinn JL. Integrative annotation of human large intergenic noncoding RNAs reveals global properties and specific subclasses. Genes Dev. 2011 Sep 15;25(18):1915-27. PMID: 21890647; PMC: PMC3185964</li>
