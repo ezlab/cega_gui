@@ -44,6 +44,7 @@
 
 		if ($box.find('div').length){
 			$box.empty();
+			$box.parent().removeClass('s-expanded');
 			delete widgets[id];
 			return;
 		}
@@ -82,6 +83,7 @@
 		}
 
 		$box.html('<div class="s-loading">Loading..</div>');
+		$box.parent().addClass('s-expanded');
 
 		var elements = app.load('/element', values).then(addParams),
 			ready = app.render('elements.html', elements).then(expand);

@@ -92,6 +92,11 @@
 	cursor: pointer;
 }
 
+.s-position-row.s-expanded>.s-position-cells {
+	background: #5af;
+}
+
+
 .s-position-headers,
 .s-position-row {
 	display: block;
