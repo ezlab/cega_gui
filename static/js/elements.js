@@ -41,6 +41,7 @@
 
 		if ($box.find('div').length){
 			$box.empty();
+			$box.data('msa', null);
 			return;
 		}
 
@@ -72,9 +73,11 @@
 
 			$.each(cfg.seqs, renderLabels);
 
-			var m = new msa.msa(cfg);
+			var widget = new msa.msa(cfg);
 
-			m.render();
+			widget.render();
+
+			$box.data('msa', widget);
 		}
 
 		$box.html('<div class="s-loading">Loading..</div>');
@@ -89,6 +92,21 @@
 	app.on('init', 	function init(){
 		$('#content').on('click', '.s-position-cells', toggleRow);
 	});
+
+
+	app.msaExport = function(event, node){
+
+		var $box = $(node).closest('.s-position-details'),
+			widget = $box.data('msa');
+
+		msa.utils.export.saveAsFile(widget, "all.fasta");
+
+		if (event.preventDefault){
+			event.preventDefault();
+		}
+
+		return false;
+	};
 
 
 	// MSA LabelHeader
