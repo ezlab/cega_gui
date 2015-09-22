@@ -25,7 +25,7 @@
 
 	function toggleRow(event){
 
-		if (event.target.nodeName == 'INPUT'){
+		if (event.target.nodeName == 'INPUT' || event.target.nodeName == 'A'){
 			return; // ignore checkbox clicks
 		}
 
