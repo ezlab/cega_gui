@@ -94,12 +94,27 @@
 	});
 
 
-	app.msaExport = function(event, node){
+	app.msaExportAll = function(event, node, filename){
 
 		var $box = $(node).closest('.s-position-details'),
 			widget = $box.data('msa');
 
-		msa.utils.export.saveAsFile(widget, "all.fasta");
+		msa.utils.export.saveAsFile(widget, filename);
+
+		if (event.preventDefault){
+			event.preventDefault();
+		}
+
+		return false;
+	};
+
+
+	app.msaExportImage = function(event, node, filename){
+
+		var $box = $(node).closest('.s-position-details'),
+			widget = $box.data('msa');
+
+		msa.utils.export.saveAsImg(widget, filename);
 
 		if (event.preventDefault){
 			event.preventDefault();
