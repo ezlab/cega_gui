@@ -2,7 +2,8 @@
 (function(){
 
 	var template,
-		headers;
+		headers,
+		widgets = {};
 
 
 	function compileTemplate(source){
@@ -24,11 +25,11 @@
 
 	function toggleRow(event){
 
-		if (event.target.nodeName == 'INPUT'){
+		if (event.target.nodeName == 'INPUT' || event.target.nodeName == 'A'){
 			return; // ignore checkbox clicks
 		}
 
-		var $box = $(event.currentTarget).next();
+		var $box = $(event.currentTarget).next(),
 
 			state = app.state(),
 
@@ -37,10 +38,14 @@
 				species: state.species,
 				block: $box.attr('data-block'),
 				element: $box.attr('data-element')
-			};
+			},
+
+			id = values.block + '_' + values.element;
 
 		if ($box.find('div').length){
 			$box.empty();
+			$box.parent().removeClass('s-expanded');
+			delete widgets[id];
 			return;
 		}
 
@@ -72,12 +77,13 @@
 
 			$.each(cfg.seqs, renderLabels);
 
-			var m = new msa.msa(cfg);
+			widgets[id] = new msa.msa(cfg);
 
-			m.render();
+			widgets[id].render();
 		}
 
 		$box.html('<div class="s-loading">Loading..</div>');
+		$box.parent().addClass('s-expanded');
 
 		var elements = app.load('/element', values).then(addParams),
 			ready = app.render('elements.html', elements).then(expand);
@@ -89,6 +95,24 @@
 	app.on('init', 	function init(){
 		$('#content').on('click', '.s-position-cells', toggleRow);
 	});
+
+
+	app.on('resize', function(){
+		$.each(widgets, function(id, m){
+			m.g.zoomer.autoResize();
+			m.render();
+		});
+	});
+
+
+	app.msaExportAll = function(id){
+		msa.utils.export.saveAsFile(widgets[id], id + '.fasta');
+	};
+
+
+	app.msaExportImage = function(id){
+		msa.utils.export.saveAsImg(widgets[id], id + '.png');
+	};
 
 
 	// MSA LabelHeader

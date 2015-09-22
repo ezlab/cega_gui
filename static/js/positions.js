@@ -42,27 +42,17 @@
 	});
 
 
-	var	resizeSensor,
-		$resizeSource,
-		$resizeTarget;
-
-	function resizeHeaders(){
-		$resizeTarget.width($resizeSource.width());
-	}
+	var	resizeSensor;
 
 	function startResizeSensor(){
-
-		$resizeSource = $('#positions');
-		$resizeTarget = $('.s-position-headers-wrap');
-
-		resizeSensor = new ResizeSensor($resizeSource, resizeHeaders);
+		resizeSensor = new ResizeSensor($('#positions'), function(){
+			app.fireEvent('resize');
+		});
 	}
 
 	function stopResizeSensor(){
 		resizeSensor.detach();
 		resizeSensor = null;
-		$resizeSource = null;
-		$resizeTarget = null;
 	}
 
 
@@ -186,6 +176,12 @@
 			$('#submit-button').click();
 		});
 	});
+
+
+	app.on('resize', function(){
+		$('.s-position-status').width($('#positions').width());
+	});
+
 
 	app.scrollPositions =	function(){
 
