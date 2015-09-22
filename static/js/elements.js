@@ -2,7 +2,8 @@
 (function(){
 
 	var template,
-		headers;
+		headers,
+		widgets = {};
 
 
 	function compileTemplate(source){
@@ -28,7 +29,7 @@
 			return; // ignore checkbox clicks
 		}
 
-		var $box = $(event.currentTarget).next();
+		var $box = $(event.currentTarget).next(),
 
 			state = app.state(),
 
@@ -37,11 +38,13 @@
 				species: state.species,
 				block: $box.attr('data-block'),
 				element: $box.attr('data-element')
-			};
+			},
+
+			id = values.block + '_' + values.element;
 
 		if ($box.find('div').length){
 			$box.empty();
-			$box.data('msa', null);
+			delete widgets[id];
 			return;
 		}
 
@@ -73,11 +76,9 @@
 
 			$.each(cfg.seqs, renderLabels);
 
-			var widget = new msa.msa(cfg);
+			widgets[id] = new msa.msa(cfg);
 
-			widget.render();
-
-			$box.data('msa', widget);
+			widgets[id].render();
 		}
 
 		$box.html('<div class="s-loading">Loading..</div>');
@@ -94,33 +95,21 @@
 	});
 
 
-	app.msaExportAll = function(event, node, filename){
+	app.on('resize', function(){
+		$.each(widgets, function(id, m){
+			m.g.zoomer.autoResize();
+			m.render();
+		});
+	});
 
-		var $box = $(node).closest('.s-position-details'),
-			widget = $box.data('msa');
 
-		msa.utils.export.saveAsFile(widget, filename);
-
-		if (event.preventDefault){
-			event.preventDefault();
-		}
-
-		return false;
+	app.msaExportAll = function(id){
+		msa.utils.export.saveAsFile(widgets[id], id + '.fasta');
 	};
 
 
-	app.msaExportImage = function(event, node, filename){
-
-		var $box = $(node).closest('.s-position-details'),
-			widget = $box.data('msa');
-
-		msa.utils.export.saveAsImg(widget, filename);
-
-		if (event.preventDefault){
-			event.preventDefault();
-		}
-
-		return false;
+	app.msaExportImage = function(id){
+		msa.utils.export.saveAsImg(widgets[id], id + '.png');
 	};
 
 
