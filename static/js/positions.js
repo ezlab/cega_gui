@@ -179,7 +179,7 @@
 
 
 	app.on('resize', function(){
-		$('.s-position-headers-wrap').width($('#positions').width());
+		$('.s-position-status').width($('#positions').width());
 	});
 
 
