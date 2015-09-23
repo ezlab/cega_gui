@@ -105,6 +105,11 @@
 	});
 
 
+	app.on('navigate', function(){
+		widgets = {};
+	});
+
+
 	app.msaExportAll = function(id){
 		msa.utils.export.saveAsFile(widgets[id], id + '.fasta');
 	};
