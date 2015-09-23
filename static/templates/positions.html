@@ -7,9 +7,9 @@
 			<div class="s-button s-download-button">
 				<div class="s-button-text">Download</div>
 				<div class="s-button-menu">
-					<a id="download-fasta" target="_new">FASTA</a>
-					<a id="download-bed" target="_new">BED</a>
-					<a id="download-fastalign" target="_new">FASTA Alignment</a>
+					<a id="download-fasta" target="_blank">FASTA</a>
+					<a id="download-bed" target="_blank">BED</a>
+					<a id="download-fastalign" target="_blank">FASTA Alignment</a>
 				</div>
 			</div>
 		</div>
@@ -17,7 +17,7 @@
 		Search results:
 
 		{{#if link_UCSC_region}}
-			<a href="{{link_UCSC_region}}" target="_new">{{request}}</a>
+			<a href="{{link_UCSC_region}}" target="_blank">{{request}}</a>
 		{{else}}
 			{{request}}
 		{{/if}}
